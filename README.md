@@ -1,4 +1,2 @@
-betterlink.github.io
+Betterlink Homepage
 ====================
-
-Homepage source for Betterlink

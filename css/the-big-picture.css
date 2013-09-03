@@ -1,0 +1,22 @@
+/* Originally via http://startbootstrap.com */
+
+body {
+	margin-top: 50px;
+	background: none;
+}
+
+h1 {
+	color: white;
+}
+
+p {
+	color: white;
+}
+
+.full {
+  background: url('../images/blue cross stitch.jpg') no-repeat center center fixed; /* via http://wallpapers87.com/wallpapers/dark-textures-canvas-simple-background-_319723-49.jpg */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
