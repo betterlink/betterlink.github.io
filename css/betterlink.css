@@ -1,0 +1,9 @@
+.code-header {
+	float: left;
+	background: #999999;
+	color: white;
+	width: 100%;
+	padding: 2px 2px 2px 10px;
+	border-radius: 4px 4px 0 0;
+	border: 1px solid #888;
+}

@@ -13,6 +13,8 @@
 
     <!-- Custom CSS for the 'Full' Template -->
     <link href="css/the-big-picture.css" rel="stylesheet">
+
+    <link href="css/betterlink.css" rel="stylesheet">
   </head>
 
   <body>
@@ -46,23 +48,67 @@
           <h1>Betterlink</h1>
           <p>Here's a spot for some awesome intro text. Check out the fixed nav at the bottom!</p>
           <p>Set the background image in the CSS, pair it with some cool fonts, and you will have a rockin' start to a cool portfolio.</p>
-          <pre class="prettyprint">
-            <code class="lang-js">
-              &lt;script&gt;
-                (function(d,s,id){
-                 var js,fjs = d.getElementsByTagName(s)[0];
-                 if(!d.getElementById(id)){
-                 js=d.createElement(s); js.id = id;
-                 js.src="//code.betterlink.co/betterlink-0.3.js";
-                 js.setAttribute('data-script_source','within source');
-                 fjs.parentNode.insertBefore(js,fjs);}
-               }(document,'script','betterlink-js'));
-              &lt;/script&gt;
-            </code>
-          </pre>
         </div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="column">
+          <div class="col-lg-5 col-sm-12">
+            <div class="code-header">
+              Copy this JavaScript
+            </div>
+            <pre class="prettyprint">
+              <code class="lang-js">
+    &lt;script&gt;
+      (function(d,s,id){
+      var js,fjs = d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+      js=d.createElement(s); js.id = id;
+      js.src="//code.betterlink.co/betterlink-0.3.js";
+      js.setAttribute('data-script_source','within source');
+      fjs.parentNode.insertBefore(js,fjs);}
+      }(document,'script','betterlink-js'));
+    &lt;/script&gt;
+              </code>
+            </pre>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="col-lg-2 col-sm-12">
+            <div class="text-center">
+              <object data="images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px">
+                <img src="yourfallback.jpg" /> 
+              </object>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="col-lg-5 col-sm-12">
+            <div class="code-header">
+              Insert into your web page
+            </div>
+            <pre class="prettyprint">
+              <code>
+      .......
+      &lt;link href="css/bootstrap.css" rel="stylesheet"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;!-- Insert Betterlink script here --&gt;
+
+      &lt;div class="container"&gt;
+        &lt;div class="navbar-header"&gt;
+        .......
+    &lt;/body&gt;
+              </code>
+            </pre>
+          </div>
+        </div>
+
+      </div> <!-- row -->
+
+    </div> <!-- container -->
     
     
   <!-- javascript -->
