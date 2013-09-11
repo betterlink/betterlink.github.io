@@ -46,6 +46,20 @@
           <h1>Betterlink</h1>
           <p>Here's a spot for some awesome intro text. Check out the fixed nav at the bottom!</p>
           <p>Set the background image in the CSS, pair it with some cool fonts, and you will have a rockin' start to a cool portfolio.</p>
+          <pre class="prettyprint">
+            <code class="lang-js">
+              &lt;script&gt;
+                (function(d,s,id){
+                 var js,fjs = d.getElementsByTagName(s)[0];
+                 if(!d.getElementById(id)){
+                 js=d.createElement(s); js.id = id;
+                 js.src="//code.betterlink.co/betterlink-0.3.js";
+                 js.setAttribute('data-script_source','within source');
+                 fjs.parentNode.insertBefore(js,fjs);}
+               }(document,'script','betterlink-js'));
+              &lt;/script&gt;
+            </code>
+          </pre>
         </div>
       </div>
     </div>
@@ -54,6 +68,7 @@
   <!-- javascript -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/google-code-prettify/run_prettify.js"></script>
 
   </body>
 
