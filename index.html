@@ -70,7 +70,7 @@
       (function(d,s,id){
       var js,fjs = d.getElementsByTagName(s)[0];
       if(!d.getElementById(id)){
-      js=d.createElement(s); js.id = id;
+      js=d.createElement(s); js.id = id; js.defer = true;
       js.src="//code.betterlink.co/betterlink-0.3.js";
       js.setAttribute('data-script_source','within source');
       fjs.parentNode.insertBefore(js,fjs);}
@@ -102,11 +102,11 @@
       &lt;link href="css/bootstrap.css" rel="stylesheet"&gt;
     &lt;/head&gt;
     &lt;body&gt;
-      &lt;!-- Insert Betterlink script here --&gt;
-
       &lt;div class="container"&gt;
         &lt;div class="navbar-header"&gt;
         .......
+      &lt;/div&gt;
+      &lt;!-- Insert Betterlink script here --&gt;
     &lt;/body&gt;
               </code>
             </pre>
