@@ -57,4 +57,9 @@ $(document).ready(function(){
 		custom.toggleDisplayOfInfo($(this).attr('data-linked-div'));
 		return false;
 	});
+
+	$(".tab-test a").click(function(e) {
+		e.preventDefault();
+		$(this).tab('show');
+	});
 });

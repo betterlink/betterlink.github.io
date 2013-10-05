@@ -122,8 +122,9 @@
             <div class="code-header">
               Insert into your web page
             </div>
-            <pre class="prettyprint">
-              <code>
+            <div id="info-box-html" class="tab-content panel panel-default info-box">
+              <pre id="placement-example" class="prettyprint tab-pane fade active in info-item">
+                <code>
       .......
       &lt;link href="css/bootstrap.css" rel="stylesheet"&gt;
     &lt;/head&gt;
@@ -134,42 +135,42 @@
       &lt;/div&gt;
       <span class="code-callout">&lt;!-- Insert Betterlink script here --&gt;</span>
     &lt;/body&gt;
-              </code>
-            </pre>
-            <div class="info-bar">
-              <ul class="info-list">
-                <li><a data-linked-div="placement-tips" href="#">tips on betterlink.js placement</a></li>
-                <li><a data-linked-div="browser-support" href="#">browser support</a></li>
-                <li><a data-linked-div="customization" href="#">customization</a></li>
-                <li><a data-linked-div="internationalization" href="#">international</a></li>
-              </ul>
-            </div>
-            <div id="info-box-html" class="well well-sm info-box hidden">
-              <div id="placement-tips" class="info-item hidden">
+                </code>
+              </pre>
+              <div id="placement-tips" class="tab-pane fade info-item">
                 <h2>Tips on Betterlink placement</h2>
                 <p>There are two things you want to keep in mind when adding Betterlink to your website:</p>
-                  <ol>
-                    <li>loading <em>your own</em> content as fast as possible</li>
-                    <li>ensuring Betterlink loads on <strong>all</strong> of the pages on your site</li>
-                  </ol>
-                  <div class="well well-sm">
-                    <p>Quick and simple answer: insert the script right before the closing <code>&lt;body&gt;</code> tag on your pages</p>
-                  </div>
-                  <h3>Detailed Explanation</h3>
-                  <p>For more details, reference our <a href="#">documentation</a> on placement.</p>
+                <ol>
+                  <li>loading <em>your own</em> content as fast as possible</li>
+                  <li>ensuring Betterlink loads on <strong>all</strong> of the pages on your site</li>
+                </ol>
+                <div class="well well-sm">
+                  <p>Quick and simple answer: insert the script right before the closing <code>&lt;body&gt;</code> tag on your pages</p>
+                </div>
+                <h3>Detailed Explanation</h3>
+                <p>For more details, reference our <a href="#">documentation</a> on placement.</p>
               </div>
-              <div id="browser-support" class="info-item hidden">
+              <div id="browser-support" class="tab-pane fade info-item">
                 <h2>Browser Support</h2>
                 <p>We'll explain our awesome browser support here.</p>
               </div>
-              <div id="customization" class="info-item hidden">
+              <div id="customization" class="tab-pane fade info-item">
                 <h2>Customization</h2>
                 <p>Documentation for slick customization</p>
               </div>
-              <div id="internationalization" class="info-item hidden">
+              <div id="internationalization" class="tab-pane fade info-item">
                 <h2>International Support</h2>
                 <p>Guess what? We support international stuff!</p>
               </div>
+            </div>
+            <div class="info-bar tab-test">
+              <ul class="info-list">
+                <li><a href="#placement-example" class="active">example</a></li>
+                <li><a href="#placement-tips">placement tips</a></li>
+                <li><a href="#browser-support">browser support</a></li>
+                <li><a href="#customization">customization</a></li>
+                <li><a href="#internationalization">international</a></li>
+              </ul>
             </div>
           </div>
         </div> <!-- /.column -->
