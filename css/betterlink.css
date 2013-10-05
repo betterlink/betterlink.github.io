@@ -13,6 +13,39 @@ ul {
 	border: 1px solid #888;
 }
 
+.info-bar {
+	margin: 5px 0px;
+}
+
+.info-list {
+	list-style-type: none;
+	color: white;
+	font-size: 11px;
+	padding: 0px;
+}
+
+.info-list li {
+	display: inline;
+}
+
+.info-list li + li:before{
+    content: " | ";
+    padding: 0 10px;
+}
+
+.info-list a {
+	color: white;
+}
+
+.info-list a:hover {
+	color: yellow;
+}
+
 .spacer {
 	margin: 25px 0px;
+}
+
+/* reset for bootstrap prettyprint */
+pre.prettyprint {
+	margin-bottom: 0px;
 }
