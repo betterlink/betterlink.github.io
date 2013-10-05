@@ -3,6 +3,10 @@ ul {
 	font-size: 18px;
 }
 
+.well p {
+	color: black;
+}
+
 .code-header {
 	float: left;
 	background: #999999;
@@ -39,6 +43,14 @@ ul {
 
 .info-list a:hover {
 	color: yellow;
+}
+
+.info-box {
+	border: 1px solid #888;
+}
+
+.info-box p {
+	padding: 0px 0px 0px 15px;
 }
 
 .code-callout:hover {
