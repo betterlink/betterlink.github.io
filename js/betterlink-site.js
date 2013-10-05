@@ -4,19 +4,22 @@ custom = window.custom || (function () {
 	var api = {};
 
 	api.toggleDisplayOfInfo = function(linkedDiv) {
-		var infoDiv = $("#" + linkedDiv);
-		var infoBox = infoDiv.closest('.info-box');
-		
-		if(sectionIsNotDisplayed(infoDiv)) {
-			activateElement(infoDiv);
-			ensureContainerIsActive(infoBox);
+		var infoDiv = $("#" + linkedDiv + ".info-item");
 
-			window.location.hash = linkedDiv;
-		}
-		else {
-			hideElements(infoDiv, infoBox);
+		if(infoDiv.length) {
+			var infoBox = infoDiv.closest('.info-box');
+			
+			if(sectionIsNotDisplayed(infoDiv)) {
+				activateElement(infoDiv);
+				ensureContainerIsActive(infoBox);
 
-			window.location.hash = "";
+				window.location.hash = linkedDiv;
+			}
+			else {
+				hideElements(infoDiv, infoBox);
+
+				window.location.hash = "";
+			}
 		}
 	}
 
