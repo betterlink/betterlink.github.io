@@ -49,6 +49,11 @@ ul {
 	border: 1px solid #888;
 }
 
+.info-box h2 {
+	font-size: 18px;
+	margin-top: 10px;
+}
+
 .info-box p {
 	padding: 0px 0px 0px 15px;
 }
