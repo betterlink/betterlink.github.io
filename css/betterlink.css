@@ -21,6 +21,8 @@ ul {
 	margin: 5px 0px;
 }
 
+/* 'info-list' of FAQ links*/
+
 .info-list {
 	list-style-type: none;
 	color: white;
@@ -45,6 +47,8 @@ ul {
 	color: yellow;
 }
 
+/* 'info-box' containing answers to FAQs */
+
 .info-box {
 	border: 1px solid #888;
 }
@@ -54,9 +58,26 @@ ul {
 	margin-top: 10px;
 }
 
+.info-box h3 {
+	font-size: 18px;
+	padding: 0px 0px 0px 15px;
+}
+
 .info-box p {
 	padding: 0px 0px 0px 15px;
 }
+
+.info-box .well-sm {
+	background-color: lightgoldenrodyellow;
+	margin: 0px 15px;
+	padding-bottom: 4px;
+}
+
+.info-box .well-sm code {
+	background-color: lightgoldenrodyellow;
+}
+
+/* ********************************** */
 
 .code-callout:hover {
 	background: yellow;
