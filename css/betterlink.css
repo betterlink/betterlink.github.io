@@ -14,7 +14,7 @@ ul {
 }
 
 .info-box {
-	height: 239px;
+	height: 237px;
 	overflow: auto;
 	padding: 0px 10px;
 	margin-bottom: 0;
@@ -32,6 +32,17 @@ ul {
 
 .info-list {
 	border: 0;
+}
+
+.info-list li.active > a:hover {
+	color: white;
+	text-decoration: none;
+	cursor: default;
+}
+
+.info-list li.active > a:before {
+	content: '\2022';
+	padding-right: 2px;
 }
 
 /* ********************************** */
