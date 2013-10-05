@@ -41,6 +41,10 @@ ul {
 	color: yellow;
 }
 
+.code-callout:hover {
+	background: yellow;
+}
+
 .spacer {
 	margin: 25px 0px;
 }
