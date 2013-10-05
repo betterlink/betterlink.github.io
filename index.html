@@ -80,14 +80,20 @@
             </pre>
             <div class="info-bar">
               <ul class="info-list">
-                <li><a href="#">how does this work?</a></li>
-                <li><a href="#">betterlink.js documentation</a></li>
+                <li><a data-linked-div="how-does-this-work" href="#">how does this work?</a></li>
+                <li><a data-linked-div="script_documentation" href="#">betterlink.js documentation</a></li>
               </ul>
             </div>
-            <div id="info-box-script" class="well well-sm info-box">
-              <h4>How does this work?</h4>
-              <p>When your webpage loads, this script will create a new <code>&lt;script&gt;</code> element to request <code>betterlink.js</code> for your site. To make sure your page loads as fast as possible, we use this special format -- this way we don't block any other content from loading!</p>
-              <p>Additionally, the <code>defer</code> attribute lets your browser know it doesn't need to execute <code>betterlink.js</code> until the rest of your page has loaded.</p>
+            <div id="info-box-script" class="well well-sm info-box hidden">
+              <div id="how-does-this-work" class="info-item hidden">
+                <h4>How does this work?</h4>
+                <p>When your webpage loads, this will create a new <code>&lt;script&gt;</code> element to request <code>betterlink.js</code> for your site. To make sure your page loads as fast as possible, we use this special format -- this way we don't block any other content from loading!</p>
+                <p>Additionally, the <code>defer</code> attribute lets your browser know it doesn't need to execute <code>betterlink.js</code> until the rest of your page has loaded.</p>
+              </div>
+              <div id="script_documentation" class="info-item hidden">
+                <h4>Betterlink documentation</h4>
+                <p>Here is where I will put the documentation.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -132,10 +138,24 @@
             </pre>
             <div class="info-bar">
               <ul class="info-list">
-                <li><a href="#">tips on betterlink.js placement</a></li>
-                <li><a href="#">browser support</a></li>
-                <li><a href="#">customization</a></li>
+                <li><a data-linked-div="placement-tips" href="#">tips on betterlink.js placement</a></li>
+                <li><a data-linked-div="browser-support" href="#">browser support</a></li>
+                <li><a data-linked-div="customization" href="#">customization</a></li>
               </ul>
+            </div>
+            <div id="info-box-html" class="well well-sm info-box hidden">
+              <div id="placement-tips" class="info-item hidden">
+                <h4>Tips on <code>betterlink.js</code> placement</h4>
+                <p>Tips go here.</p>
+              </div>
+              <div id="browser-support" class="info-item hidden">
+                <h4>Browser Support</h4>
+                <p>We'll explain our awesome browser support here.</p>
+              </div>
+              <div id="customization" class="info-item hidden">
+                <h4>Customization</h4>
+                <p>Documentation for slick customization</p>
+              </div>
             </div>
           </div>
         </div> <!-- /.column -->
@@ -157,6 +177,7 @@
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/google-code-prettify/run_prettify.js"></script>
+  <script src="js/betterlink-site.js"></script>
 
   <!-- Example use of betterlink.js script here -->
   <script>
