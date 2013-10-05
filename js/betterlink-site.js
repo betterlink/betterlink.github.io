@@ -48,11 +48,6 @@ custom = window.custom || (function () {
 })();
 
 $(document).ready(function(){
-	// If a hash is provided in the URL, assume it is requesting a FAQ and display that <div>
-	if(window.location.hash) {
-		custom.toggleDisplayOfInfo(window.location.hash.substr(window.location.hash.indexOf('#')+1));
-	}
-
 	$("div.info-bar a").click(function() {
 		custom.toggleDisplayOfInfo($(this).attr('data-linked-div'));
 		return false;
