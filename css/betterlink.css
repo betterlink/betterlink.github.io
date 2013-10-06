@@ -68,38 +68,40 @@ ul {
 	background-color: #f5f5f5;
 }
 
-	.info-box h2 {
+.info-box p {
+	color: black;
+}
+
+	.info-item > h2, .info-item > p, .info-item > ol {
+		margin-bottom: 8px
+	}
+
+	.info-item > h2 {
 		font-size: 18px;
 		margin-top: 10px;
 	}
 
-	.info-box h3 {
+	.info-item > h3 {
 		font-size: 18px;
 		padding: 0px 0px 0px 15px;
 	}
 
-	.info-box p {
+	.info-item > p {
 		padding: 0px 0px 0px 15px;
-		color: black;
 	}
 
-	.info-box pre.prettyprint {
+	.info-item > pre.prettyprint, .info-item > pre.prettyprinted {
 		border: 0;
 		padding: 0;
 	}
 
-	.info-box pre.prettyprinted {
-		border: 0;
-		padding: 0;
-	}
-
-	.info-box .well-sm {
+	.info-item .well-sm {
 		background-color: #FAFAD2; /* lightgoldenrodyellow */
-		margin: 0px 15px;
+		margin: 0 15px 7px 15px;
 		padding-bottom: 4px;
 	}
 
-	.info-box .well-sm code {
+	.info-item .well-sm code {
 		background-color: #FAFAD2;
 	}
 
