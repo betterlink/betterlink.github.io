@@ -3,50 +3,6 @@ ul {
 	font-size: 18px;
 }
 
-.well p {
-	color: black;
-}
-
-/* ********************************** */
-
-.tab-content p {
-	color: black;
-}
-
-.info-box {
-	height: 237px;
-	overflow: auto;
-	padding: 0px 10px;
-	margin-bottom: 0;
-	background-color: #f5f5f5;
-}
-
-.info-box pre.prettyprint {
-	border: 0;
-}
-
-.info-box pre.prettyprinted {
-	border: 0;
-	padding: 0;
-}
-
-.info-list {
-	border: 0;
-}
-
-.info-list li.active > a:hover {
-	color: white;
-	text-decoration: none;
-	cursor: default;
-}
-
-.info-list li.active > a:before {
-	content: '\2022';
-	padding-right: 2px;
-}
-
-/* ********************************** */
-
 .code-header {
 	float: left;
 	background: #767676;
@@ -61,61 +17,91 @@ ul {
 	margin: 5px 0px;
 }
 
-/* 'info-list' of FAQ links*/
+/* 'info-list' of FAQ links */
 
 .info-list {
 	list-style-type: none;
 	color: white;
 	font-size: 11px;
-	padding: 0px;
+	padding: 0;
 }
 
-.info-list li {
-	display: inline;
-}
+	.info-list li {
+		display: inline;
+	}
 
-.info-list li + li:before{
-    content: " | ";
-    padding: 0 10px;
-}
+	.info-list li + li:before{
+	    content: " | ";
+	    padding: 0 10px;
+	}
 
-.info-list a {
-	color: white;
-}
+	.info-list a {
+		color: white;
+	}
 
-.info-list a:hover {
-	color: yellow;
-}
+	.info-list a:hover {
+		color: yellow;
+	}
 
+	/* styles for selected tab links */
+	.info-list li.active > a:hover {
+		color: white;
+		text-decoration: none;
+		cursor: default;
+	}
+
+	.info-list li.active > a:before {
+		content: '\2022';
+		padding-right: 2px;
+	}
+
+/* ********************************** */
 /* 'info-box' containing answers to FAQs */
 
 .info-box {
 	border: 1px solid #888;
+	border-radius: 0 0 4px 4px;
+	height: 237px;
+	overflow: hidden;
+	padding: 0px 10px 5px 10px;
+	margin-bottom: 0;
+	background-color: #f5f5f5;
 }
 
-.info-box h2 {
-	font-size: 18px;
-	margin-top: 10px;
-}
+	.info-box h2 {
+		font-size: 18px;
+		margin-top: 10px;
+	}
 
-.info-box h3 {
-	font-size: 18px;
-	padding: 0px 0px 0px 15px;
-}
+	.info-box h3 {
+		font-size: 18px;
+		padding: 0px 0px 0px 15px;
+	}
 
-.info-box p {
-	padding: 0px 0px 0px 15px;
-}
+	.info-box p {
+		padding: 0px 0px 0px 15px;
+		color: black;
+	}
 
-.info-box .well-sm {
-	background-color: lightgoldenrodyellow;
-	margin: 0px 15px;
-	padding-bottom: 4px;
-}
+	.info-box pre.prettyprint {
+		border: 0;
+		padding: 0;
+	}
 
-.info-box .well-sm code {
-	background-color: lightgoldenrodyellow;
-}
+	.info-box pre.prettyprinted {
+		border: 0;
+		padding: 0;
+	}
+
+	.info-box .well-sm {
+		background-color: #FAFAD2; /* lightgoldenrodyellow */
+		margin: 0px 15px;
+		padding-bottom: 4px;
+	}
+
+	.info-box .well-sm code {
+		background-color: #FAFAD2;
+	}
 
 /* ********************************** */
 

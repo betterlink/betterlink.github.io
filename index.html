@@ -64,8 +64,9 @@
             <div class="code-header">
               Copy this JavaScript
             </div>
-            <pre class="prettyprint">
-              <code>
+            <div id="info-box-script" class="tab-content panel info-box">
+              <pre id="script-sample" class="prettyprint tab-pane fade active in info-item">
+                <code>
     &lt;script&gt;
       (function(d,s,id){
       var js,fjs = d.getElementsByTagName(s)[0];
@@ -76,24 +77,24 @@
       fjs.parentNode.insertBefore(js,fjs);}
       }(document,'script','betterlink-js'));
     &lt;/script&gt;
-              </code>
-            </pre>
-            <div class="info-bar">
-              <ul class="info-list">
-                <li><a data-linked-div="how-does-this-work" href="#">how does this work?</a></li>
-                <li><a data-linked-div="script_documentation" href="#">betterlink.js documentation</a></li>
-              </ul>
-            </div>
-            <div id="info-box-script" class="well well-sm info-box hidden">
-              <div id="how-does-this-work" class="info-item hidden">
+                </code>
+              </pre>
+              <div id="how-does-this-work" class="tab-pane fade info-item">
                 <h2>How does this work?</h2>
                 <p>When your webpage loads, this will create a new <code>&lt;script&gt;</code> element to request Betterlink for your site. To make sure your page loads as fast as possible, we use this special format -- this way we don't block any other content from loading!</p>
                 <p>Additionally, the <code>defer</code> attribute lets your browser know it doesn't need to execute Betterlink until the rest of your page has loaded.</p>
               </div>
-              <div id="script_documentation" class="info-item hidden">
+              <div id="script_documentation" class="tab-pane fade info-item">
                 <h2>Betterlink documentation</h2>
                 <p>Here is where I will put the documentation.</p>
               </div>
+            </div>
+            <div class="info-bar tab-test">
+              <ul class="info-list">
+                <li class="active"><a href="#script-sample">script sample</a></li>
+                <li><a href="#how-does-this-work">how does this work?</a></li>
+                <li><a href="#script_documentation">betterlink.js documentation</a></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -122,7 +123,7 @@
             <div class="code-header">
               Insert into your web page
             </div>
-            <div id="info-box-html" class="tab-content panel panel-default info-box">
+            <div id="info-box-html" class="tab-content panel info-box">
               <pre id="placement-example" class="prettyprint tab-pane fade active in info-item">
                 <code>
       .......
