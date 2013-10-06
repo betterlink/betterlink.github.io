@@ -1,4 +1,8 @@
-ul {
+#introduction h1 {
+	color: white;
+}
+
+#introduction ul {
 	color: white;
 	font-size: 18px;
 }
