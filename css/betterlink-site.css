@@ -49,7 +49,7 @@ ul {
 	}
 
 	/* styles for selected tab links */
-	.info-list li.active > a:hover {
+	.info-list li.active > a:hover, .info-list li.active > a:focus {
 		color: white;
 		text-decoration: none;
 		cursor: default;
