@@ -3,6 +3,11 @@ ul {
 	font-size: 18px;
 }
 
+#betterlink-site-nav .active > a, #betterlink-site-nav .active > a:hover, #betterlink-site-nav .active > a:focus {
+	background-color: #00008B; /* darkblue */
+	color: white;
+}
+
 .code-header {
 	float: left;
 	background: #767676;
