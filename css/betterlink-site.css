@@ -1,3 +1,7 @@
+h5 {
+	font-weight: bold;
+}
+
 #introduction h1 {
 	color: white;
 }
@@ -116,6 +120,16 @@
 
 /* ********************************** */
 
+div.message-block {
+	background-color: #FAFAD2; /* lightgoldenrodyellow */
+	margin-bottom: 10px;
+	padding-bottom: 4px;
+}
+
+div.message-block code {
+	background-color: #FAFAD2;
+}
+
 .code-callout:hover {
 	background: yellow;
 }
@@ -127,4 +141,11 @@
 /* reset for bootstrap prettyprint */
 pre.prettyprint {
 	margin-bottom: 0px;
+}
+
+/* ********************************** */
+/* Documentation CSS */
+a.demo-link {
+	font-weight: bold;
+	color: #00008B; /* darkblue */
 }

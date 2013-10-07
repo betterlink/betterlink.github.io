@@ -9,7 +9,9 @@
     <title>Betterlink - Documentation</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+    <!-- //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
     <link href="css/blog-post.css" rel="stylesheet">
@@ -48,47 +50,88 @@
       <div class="row">
         <div class="col-lg-8">
         
-          <!-- the actual blog post: title/author/date/content -->
-          <h1>A Simple Blog Template for Bootstrap 3</h1>
-          <p class="lead">by <a href="index.php">Start Bootstrap</a></p>
+          <h1>Betterlink Documentation</h1>
+          <p class="lead"><span class="glyphicon glyphicon-check"></span> everything you want to know</p>
+          
           <hr>
-          <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+          
+          <h2>The Basics</h2>
+          <p class="lead">With Betterlink, your viewers can share and save your content easier than ever before.</p>
+
+          <p>Betterlink is a basic add-on for your website. Once enabled, all of your content is immediately linkable. The same way you might share a link to a page you found interesting, <strong>now</strong> your users can link directly to the piece of the page you want them to see.</p>
+          <p>To get a sense of what this means, check out this link: <a class="demo-link" href="#">click here</a></p>
+          <p>If you load this page from the above link, you'll end up right here at this paragraph. Pretty cool? It's easy to setup.</p>
+
           <hr>
-          <img src="http://placehold.it/900x300" class="img-responsive">
-          <hr>
-          <p class="lead">Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
-          <p>You know, being a test pilot isn't always the healthiest business in the world.</p>
-          <p>Cookie jelly beans soufflé icing. Gummi bears tootsie roll powder chupa chups cheesecake chocolate jelly-o lollipop lollipop. Halvah applicake chupa chups. Marshmallow chocolate jujubes icing lollipop gummi bears chupa chups pudding bonbon. Jelly beans jelly soufflé jujubes. Sesame snaps lollipop icing donut lemon drops soufflé.</p>
-          <p>Donut caramels gingerbread. Sweet roll macaroon pastry cotton candy oat cake sesame snaps biscuit lemon drops dessert. Candy canes carrot cake danish carrot cake soufflé jelly chocolate cake muffin. Topping brownie donut. Oat cake marzipan dragée cheesecake. Donut chocolate cake jujubes tart dragée toffee.</p>
-          <p>Tilefish electric knifefish salmon shark southern Dolly Varden. Pacific argentine tope golden shiner ilisha barreleye loosejaw catla, dogteeth tetra catfish tenpounder nase scup Ragfish brotula." Codlet brook lamprey pleco, Japanese eel convict cichlid titan triggerfish, plownose chimaera topminnow Black scalyfin. Walleye pollock, blue shark Sacramento blackfish prickleback airbreathing catfish yellowfin cutthroat trout, goby southern sandfish. North Pacific daggertooth dorab cepalin weever flying gurnard.</p>
-          <p><strong>Placeholder text by:</strong></p>
+          <h3>Simple Setup</h3>
+          <p>In most cases, all you need to do is add the Betterlink library to your site. This is also the same step you'll need to take, no matter how complex your setup is.</p>
+          <p>To add the library to your site, you'll need to find two things first:</p>
+          <ol>
+            <li>The script text you'll need to copy and paste <small><em>(we've got you covered here)</em></small></li>
+            <li>Where you're going to add the script</li>
+          </ol>
+          <h4>Script Text</h4>
+          <pre class="prettyprint"><code>    &lt;script&gt;
+      (function(d,s,id){
+      var js,fjs = d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+      js=d.createElement(s); js.id = id; js.defer = true;
+      js.src="//code.betterlink.co/betterlink.js";
+      js.setAttribute('data-script_source','within source');
+      fjs.parentNode.insertBefore(js,fjs);}
+      }(document,'script','betterlink-js'));
+    &lt;/script&gt;</code></pre>
+          
+          <h4>Script Placement</h4>
+          
+          <p>When adding Betterlink (or any library) to your website, you want to keep two major things in mind:</p>
+          <ol>
+            <li>loading <em>your own</em> content as fast as possible</li>
+            <li>ensuring Betterlink loads on <strong>all</strong> of the pages on your site</li>
+          </ol>
+          <div class="well well-sm message-block"><p>Quick and simple answer: you should add Betterlink just before the closing <code>&lt;/body&gt;</code> tag on your webpages</p></div>
+          <p>Before digging into the details, one simple fact: <strong>no matter where</strong> you add the script, it's still going to work. We're just trying to help make sure you get the best experience.</p>
+          
+          <h5>Details</h5>
+          
+          <p>In the script that's copied above, we add the <code>defer</code> attribute when requesting to load Betterlink. This tells your visitor's browser that all of the code inside the Betterlink library doesn't need to run until the rest of the page has loaded. This is a trick we use so that we give all of <strong>your content</strong> priority when loading your webpage.</p>
+          <p>Some older browsers don't use the <code>defer</code> attribute when figuring out when to load and run JavaScript on the page. If you don't have a lot of visitors to your website that are using older web browsers, this isn't a problem. If you do, then another tactic is to move the script as far down the page as possible. This way, the web browser will load everything else first, before trying to load any additional JavaScript. In your source code, this would be just before the closing <code>&lt;/body&gt;</code> tag.</p>
+          <p>Another thing to check: when you add Betterlink to your site, you want to add it to every page on your site. If you use some sort of shared footer, this is a good place to add the script. It loads on every page and sits at the bottom.</p>
+          <p>Another option is to check if your site alreads loads shared resources. These typically are in the <code>&lt;head&gt;</code> of your webpages. If you already load stylesheets and JavaScript here, this is probably a good place to add Betterlink as well.</p>
+          <p>If you want to see an example, you can check the source code for this page and see where we've added the Betterlink script.</p>
+
+          <h4>Initializing Betterlink</h4>
+
+          <p>The good news: If you're following this simple setup, you're all done!</p>
+          <p>When your browser loads the Betterlink script, it will automatically enable content sharing. We'll also automatically check if a visitor followed one of your new special links. If so, we'll take them to the requested portion of the page and highlight the content.</p>
+          <p>If you're concerned about any of the below topics, check out our <a href="#">Advanced Setup</a>:</p>
           <ul>
-            <li><a href="http://spaceipsum.com/">Space Ipsum</a></li>
-            <li><a href="http://cupcakeipsum.com/">Cupcake Ipsum</a></li>
-            <li><a href="http://tunaipsum.com/">Tuna Ipsum</a></li>
+            <li>Redirecting mobile users <small><em>(so they can see the same highlighted content)</em></small></li>
+            <li>Linking to dynamic content on a page <small><em>(content that changes or displays sometime after the page initially loads)</em></small></li>
+            <li>Linking to content that displays when a hash is loaded in the URL <small><em>(like <code>http://example.com#my_content</code>)</em></small></li>
+            <li>Customizing the look and feel of the highlights</li>
+            <li>Using permalinks to link to pages that change their address</li>
           </ul>
 
           <hr>
 
-          <!-- the comment box -->
-          <div class="well">
-            <h4>Leave a Comment:</h4>
-            <form role="form">
-              <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+          <h3>Browser Support</h3>
+
+          <p>Betterlink has very wide browser support. There's a pretty simple reason for this:</p>
+          <div class="well well-sm message-block">
+            <p>URLs don't have browser support. While some pages may not work for some users, that level of compatibility is defined and decided by each site.</p>
+            <p>If we're striving to complement and replace the links people already share, it's unfair for us to limit the ability to interact with a webpage any more than a visitor would be able to naturally.</p>
           </div>
-          
+          <p>The short answer: Betterlink is supported by all modern browsers and most older browsers.</p>
+          <p>IE7+ is officially supported, and IE6 <em>should</em> work (however, it has not been thoroughly tested).</p>
+
           <hr>
 
-          <!-- the comments -->
-          <h3>Start Bootstrap <small>9:41 PM on August 24, 2013</small></h3>
-          <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+          <h3>International Support</h3>
 
-          <h3>Start Bootstrap <small>9:47 PM on August 24, 2013</small></h3>
-          <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p>
+          <p>If there's text that displays on your page, Betterlink will be able to link straight to it. It doesn't matter if you say 'hello' as 你好 or שָׁלוֹם.</p>
+          <p>Yes, that includes emoji too <span style="font-size:24px;">&#x263A;</span></p>
+          <p>Give it a shot to see for yourself: <a class="demo-link" href="#">link to 'hello'</a><p>
 
         </div>
         
@@ -130,21 +173,23 @@
         </div>
       </div>
       
+      <!-- Footer to add back later
       <hr>
-      
+
       <footer>
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright &copy; Company 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
+            <p>Copyright &copy; Ben Getson 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
           </div>
         </div>
       </footer>
+      -->
 
     </div><!-- /.container -->
 
     <!-- javascript -->
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.js"></script> <!-- //netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js -->
     <script src="js/google-code-prettify/run_prettify.js"></script>
 
     <!-- Example use of betterlink.js script here -->
