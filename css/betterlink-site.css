@@ -109,13 +109,7 @@ h5 {
 	}
 
 	.info-item .well-sm {
-		background-color: #FAFAD2; /* lightgoldenrodyellow */
 		margin: 0 15px 7px 15px;
-		padding-bottom: 4px;
-	}
-
-	.info-item .well-sm code {
-		background-color: #FAFAD2;
 	}
 
 /* ********************************** */
