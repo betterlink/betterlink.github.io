@@ -143,3 +143,12 @@ a.demo-link {
 	font-weight: bold;
 	color: #00008B; /* darkblue */
 }
+
+.documentation-index {
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+	.documentation-index > ul > .active {
+		color: #999;
+	}
