@@ -39,7 +39,7 @@ h5 {
 	padding: 0;
 }
 
-	.info-list li {
+	.info-list > li {
 		display: inline;
 	}
 
@@ -48,22 +48,22 @@ h5 {
 	    padding: 0 10px;
 	}
 
-	.info-list a {
+	.info-list > li > a {
 		color: white;
 	}
 
-	.info-list a:hover {
+	.info-list > li > a:hover {
 		color: yellow;
 	}
 
 	/* styles for selected tab links */
-	.info-list li.active > a:hover, .info-list li.active > a:focus {
+	.info-list .active > a:hover, .info-list .active > a:focus {
 		color: white;
 		text-decoration: none;
 		cursor: default;
 	}
 
-	.info-list li.active > a:before {
+	.info-list .active > a:before {
 		content: '\2022';
 		padding-right: 2px;
 	}
@@ -103,7 +103,7 @@ h5 {
 		padding: 0px 0px 0px 15px;
 	}
 
-	.info-item > pre.prettyprint, .info-item > pre.prettyprinted {
+	.info-item > .prettyprint, .info-item > .prettyprinted {
 		border: 0;
 		padding: 0;
 	}
@@ -114,13 +114,13 @@ h5 {
 
 /* ********************************** */
 
-div.message-block {
+.message-block {
 	background-color: #FAFAD2; /* lightgoldenrodyellow */
 	margin-bottom: 10px;
 	padding-bottom: 4px;
 }
 
-div.message-block code {
+.message-block code {
 	background-color: #FAFAD2;
 }
 
@@ -133,13 +133,13 @@ div.message-block code {
 }
 
 /* reset for bootstrap prettyprint */
-pre.prettyprint {
+.prettyprint {
 	margin-bottom: 0px;
 }
 
 /* ********************************** */
 /* Documentation CSS */
-a.demo-link {
+.demo-link {
 	font-weight: bold;
 	color: #00008B; /* darkblue */
 }
