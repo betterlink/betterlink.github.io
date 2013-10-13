@@ -215,14 +215,47 @@
 
   <!-- Example use of betterlink.js script here -->
   <script>
+    // Copied and commented below *would* be the standard implementation.
+    // Because we're using JavaScript to show different content based on a
+    // hash provided in the URL, we need a slightly advanced configuration
+    // for this page.
+    // 
+    // (function(d,s,id){
+    //   var js,fjs = d.getElementsByTagName(s)[0];
+    //   if(!d.getElementById(id)){
+    //   js=d.createElement(s); js.id = id; js.defer = true;
+    //   js.src="//code.betterlink.co/betterlink.js";
+    //   js.setAttribute('data-script_source','within source');
+    //   fjs.parentNode.insertBefore(js,fjs);}
+    // }(document,'script','betterlink-js'));
+
+    // CUSTOM, NON-STANDARD BETTERLINK *********
     (function(d,s,id){
       var js,fjs = d.getElementsByTagName(s)[0];
       if(!d.getElementById(id)){
       js=d.createElement(s); js.id = id; js.defer = true;
-      js.src="//code.betterlink.co/betterlink.js";
+      js.src="//code.betterlink.co/betterlink-bespoke.js";
       js.setAttribute('data-script_source','within source');
       fjs.parentNode.insertBefore(js,fjs);}
     }(document,'script','betterlink-js'));
+
+    $(document).ready(function () {
+      var counter = 0;
+      var i = setInterval(function () {
+        var betterlink;
+        if(betterlink && betterlink.config) {
+          clearInterval(i);
+
+          betterlink.config.preserveHash = true;
+          betterlink.init();
+        }
+        else if(++counter > 100) { // 10 seconds
+          clearInterval(i);
+          console.log("Betterlink wasn't able to load");
+        }
+      }, 100);
+    });
+    // ********* CUSTOM, NON-STANDARD BETTERLINK
   </script>
 
   </body>
