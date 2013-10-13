@@ -16,6 +16,10 @@ h5 {
 	color: white;
 }
 
+.navbar-nav > li > .dropdown-menu { /* only display on desktop size; allow mobile media query to override */
+	background-color: #f5f5f5;
+}
+
 .code-header {
 	float: left;
 	background: #767676;
