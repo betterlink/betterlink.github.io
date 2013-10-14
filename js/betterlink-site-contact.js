@@ -16,8 +16,7 @@ function submitContactUsForm() {
 	var formValues = jqContactUsForm.serialize();
 	if(validateEntry(formValues)) {
 		var translatedValues = translateValuesForWufoo(formValues);
-
-		console.log(translatedValues);
+		sendToWufoo(translatedValues);
 	}
 }
 
@@ -34,21 +33,29 @@ function translateValuesForWufoo(formValues) {
 		'contact_email': 'Field5',
 		'contact_message': 'Field3'
 	};
-	var entries = [];
+	var dataMappings = {};
 
 	$.each(fieldMappings, function(oldName, newName) {
+		// Matches a 'key=value' parameter found within a set of parameters
 		var dataExistence = new RegExp("(^|&)" + oldName + "=[^&$]+");
 
 		var parameterData = dataExistence.exec(formValues);
 		if(parameterData) {
-			var data = parameterData[0].substr(parameterData[0].indexOf('='));
-			var newString = newName + data;
-
-			entries.push(newString);
+			var data = parameterData[0].substr(parameterData[0].indexOf('=')+1);
+			dataMappings.newName = data;
 		}
 	});
 
-	return entries.join('&');
+	return dataMappings;
+}
+
+function sendToWufoo(dataMappings) {
+	var API_KEY = 'UZOS-9A5D-ZMHJ-GRNP';
+	var FORM_HASH = 'z1uoi9vn0nkd3y5'; // contact-us form
+	var url = 'https://betterlink.wufoo.com/api/v3/forms/' + FORM_HASH + '/entries.json';
+
+	// see https://betterlink.wufoo.com/docs/api/v3/entries/post/
+	// and https://betterlink.wufoo.com/docs/api/v3/examples/
 }
 
 function disableSubmissionButton() {
