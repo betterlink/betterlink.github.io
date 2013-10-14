@@ -69,24 +69,24 @@
           <h3>Let's Get In Touch!</h3>
           <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
           
-          <form role="form" method="POST" action="#">
+          <form role="form" id="contact-us-form">
             <div class="row">
               <div class="form-group col-lg-6">
-                <label for="input1">Name</label>
-                <input type="text" name="contact_name" class="form-control" id="input1">
+                <label for="contact_name">Name</label>
+                <input type="text" name="contact_name" class="form-control" id="contact_name">
               </div>
               <div class="form-group col-lg-6">
-                <label for="input2">Email Address</label>
-                <input type="email" name="contact_email" class="form-control" id="input2">
+                <label for="contact_email">Email Address</label>
+                <input type="email" name="contact_email" class="form-control" id="contact_email">
               </div>
               <div class="clearfix"></div>
               <div class="form-group col-lg-12">
-                <label for="input4">Message</label>
-                <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
+                <label for="contact_message">Message</label>
+                <textarea name="contact_message" class="form-control" rows="6" id="contact_message"></textarea>
               </div>
               <div class="form-group col-lg-12">
-                <input type="hidden" name="save" value="contact">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="hidden" name="save" value="contact" id="confirmation-input">
+                <button type="submit" class="btn btn-primary" id="submit-contact-form-btn">Submit</button>
               </div>
             </div>
           </form>
@@ -150,6 +150,7 @@
     <script src="js/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="js/google-code-prettify/run_prettify.js"></script>
+    <script src="js/betterlink-site-contact.js"></script>
     <!-- <script src="wufoo/scripts/wufoo.js"></script> -->
 
     <!-- Example use of betterlink.js script here -->
