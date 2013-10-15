@@ -42,7 +42,7 @@ function translateValuesForWufoo(formValues) {
 		var parameterData = dataExistence.exec(formValues);
 		if(parameterData) {
 			var data = parameterData[0].substr(parameterData[0].indexOf('=')+1);
-			dataMappings.newName = data;
+			dataMappings[newName] = data;
 		}
 	});
 
