@@ -60,12 +60,8 @@ function sendToWufoo(dataMappings) {
 		data: dataMappings,
 		contentType: 'multipart/form-data',
 		dataType: 'json',
-		success: function (data) {
-			console.info(data);
-		},
-		error: function(jqXHR, textStatus, errorThrown) {
-			console.log("error: " + textStatus + "; " + errorThrown);
-		},
+		success: displaySuccessResponse,
+		error: displayErrorResponse,
 		username: API_KEY,
 		password: 'footastical'
 	}).always(function() {
@@ -82,4 +78,14 @@ function disableSubmissionButton() {
 
 function enableSubmissionButton() {
 	jqSubmissionButton.removeAttr('disabled');
+}
+
+function displaySuccessResponse(data) {
+	var message = 'Thanks for your message. We\'ll get back in touch soon.';
+	$('#submission-response').text(message);
+}
+
+function displayErrorResponse(jqXHR, textStatus, errorThrown) {
+	var errorMessage = 'There was a problem sending your message. Please try emailing us at <a href="mailto:info@betterlink.co">info@betterlink.co</a>.';
+	$('#submission-response').html(errorMessage);
 }
