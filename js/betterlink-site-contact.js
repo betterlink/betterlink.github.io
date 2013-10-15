@@ -54,6 +54,24 @@ function sendToWufoo(dataMappings) {
 	var FORM_HASH = 'z1uoi9vn0nkd3y5'; // contact-us form
 	var url = 'https://betterlink.wufoo.com/api/v3/forms/' + FORM_HASH + '/entries.json';
 
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: dataMappings,
+		contentType: 'multipart/form-data',
+		dataType: 'json',
+		success: function (data) {
+			console.info(data);
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.log("error: " + textStatus + "; " + errorThrown);
+		},
+		username: API_KEY,
+		password: 'footastical'
+	}).always(function() {
+		enableSubmissionButton();
+	});
+
 	// see https://betterlink.wufoo.com/docs/api/v3/entries/post/
 	// and https://betterlink.wufoo.com/docs/api/v3/examples/
 }
