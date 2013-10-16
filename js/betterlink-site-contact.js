@@ -13,62 +13,99 @@ $(document).ready(function(){
 });
 
 function submitContactUsForm() {
-	var formValues = jqContactUsForm.serialize();
+	var formValues = jqContactUsForm.serializeArray();
+	formValues = turnFormArrayIntoKeyValues(formValues);
+
 	if(validateEntry(formValues)) {
 		var translatedValues = translateValuesForWufoo(formValues);
-		sendToWufoo(translatedValues);
+		var formData = generateFormData(addWufooPostKey(translatedValues));
+		sendToWufoo(formData);
 	}
 }
 
-function validateEntry(inputs) {
-	// naive check to match against the existence of
-	// the parameter "save=contact" 
-	var submissionCheck = /save=contact($|&)/;
-	return submissionCheck.test(inputs);
+// Because we know our data is simple (just text values), then
+// it's safe to run this basic conversion.
+function turnFormArrayIntoKeyValues(formValues) {
+	var formObject = {}
+	$.each(formValues, function(index, obj) {
+		formObject[obj.name] = obj.value;
+	});
+	return formObject;
 }
 
+// Validate that the request is coming from our web form. This
+// is naively handled via a hidden attribute 'save=contact'.
+function validateEntry(inputs) {
+	if(inputs.hasOwnProperty('save')) {
+		return inputs['save'] === 'contact';
+	}
+	return false;
+}
+
+// Convert the name fields in our web form into the fields
+// that Wufoo has mapped to those attributes.
 function translateValuesForWufoo(formValues) {
 	var fieldMappings = {
 		'contact_name': 'Field2',
 		'contact_email': 'Field5',
 		'contact_message': 'Field3'
 	};
-	var dataMappings = {};
 
+	var translatedValues = {};
 	$.each(fieldMappings, function(oldName, newName) {
-		// Matches a 'key=value' parameter found within a set of parameters
-		var dataExistence = new RegExp("(^|&)" + oldName + "=[^&$]+");
-
-		var parameterData = dataExistence.exec(formValues);
-		if(parameterData) {
-			var data = parameterData[0].substr(parameterData[0].indexOf('=')+1);
-			dataMappings[newName] = data;
-		}
+		translatedValues[newName] = formValues[oldName];
 	});
+
+	return translatedValues;
+}
+
+// In order for Wufoo to accept our Cross-Origin request,
+// we need to supply this external POST key.
+// Accessed via https://betterlink.wufoo.com/api/code/1/
+function addWufooPostKey(dataMappings) {
+	POST_KEY = 'opCNEE7w20felqkSRw1VKG90XtVGojCv9AZVyQfsfQs=';
+	dataMappings['idstamp'] = POST_KEY;
 
 	return dataMappings;
 }
 
-function sendToWufoo(dataMappings) {
-	var API_KEY = 'UZOS-9A5D-ZMHJ-GRNP';
-	var FORM_HASH = 'z1uoi9vn0nkd3y5'; // contact-us form
-	var url = 'https://betterlink.wufoo.com/api/v3/forms/' + FORM_HASH + '/entries.json';
+// Convert JS object into a FormData object that can be
+// transmitted via an HTTP POST. Necessary to generate
+// the multipart format expected by Wufoo.
+function generateFormData(dataMappings) {
+	var formData = new FormData();
+	$.each(dataMappings, function (key, value) {
+		formData.append(key, value);
+	});
+	return formData;
+}
 
+function sendToWufoo(formData) {
+	var FORM_HASH = 'z1uoi9vn0nkd3y5'; // contact-us form
+	var url = 'https://betterlink.wufoo.com/forms/' + FORM_HASH + '/';
+
+	// structure influenced by http://stackoverflow.com/a/5976031
+	// contentType = 'false' tells JQuery not to set the header for us,
+	//               allowing the boundary string to be set
+	// processData = 'false' is setup because FormData has set the data
+	//               as we want
+	// we always display success because the browser does not believe the
+	// HTTP request reaches the server (it does). The returned jqXHR object
+	// errors and returns a status code of 0.
 	$.ajax({
 		url: url,
-		type: 'post',
-		data: dataMappings,
-		contentType: 'multipart/form-data',
+		type: 'POST',
+		data: formData,
+		contentType: false,
+		processData: false,
 		dataType: 'json',
 		success: displaySuccessResponse,
-		error: displayErrorResponse,
-		username: API_KEY,
-		password: 'footastical'
+		error: displaySuccessResponse,
 	}).always(function() {
 		enableSubmissionButton();
 	});
 
-	// see https://betterlink.wufoo.com/docs/api/v3/entries/post/
+	// see https://betterlink.wufoo.com/docs/api/v2/external-post-to-wufoo/
 	// and https://betterlink.wufoo.com/docs/api/v3/examples/
 }
 
