@@ -202,12 +202,6 @@
       </div>
     </div> <!-- /.container -->
 
-    <!-- javascript -->
-    <script src="js/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="js/google-code-prettify/run_prettify.js"></script>
-    <script src="js/betterlink-site.js"></script>
-
     <!-- Example use of betterlink.js script here -->
     <script>
       // Copied and commented below *would* be the standard implementation.
@@ -225,36 +219,32 @@
       // }(document,'script','betterlink-js'));
 
       // CUSTOM, NON-STANDARD BETTERLINK *********
-      (function(d,s,id){
-        var js,fjs = d.getElementsByTagName(s)[0];
-        if(!d.getElementById(id)){
-        js=d.createElement(s); js.id = id; js.defer = true;
-        js.src="//code.betterlink.co/betterlink-bespoke.js";
-        js.setAttribute('data-script_source','within source');
-        fjs.parentNode.insertBefore(js,fjs);}
-      }(document,'script','betterlink-js'));
+      function loadHomepageJS() {
+        var betterlinkSource = "//code.betterlink.co/betterlink-bespoke.js";
 
-      var betterlink;
-      $(document).ready(function () {
-        var counter = 0;
-        var i = setInterval(function () {
-          if(betterlink && betterlink.config) {
-            clearInterval(i);
-
+        $LAB
+          .script("js/jquery.js").wait()
+          .script("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js").wait()
+          .script("js/betterlink-site.js")
+          .script(betterlinkSource)
+          .wait(function() {
             betterlink.config.preserveHash = true;
             betterlink.init();
-          }
-          else if(++counter > 100) { // 10 seconds
-            clearInterval(i);
-            console.log("Betterlink wasn't able to load");
-          }
-        }, 100);
-      });
+          })
+          .script("js/google-code-prettify/run_prettify.js");
+      }
+
+      (function(d,s,src) {
+        var js,fjs = d.getElementsByTagName(s)[0];
+        js=d.createElement(s); js.src=src;
+        js.onload=loadHomepageJS;
+        fjs.parentNode.insertBefore(js,fjs);
+      }(document,'script','//cdnjs.cloudflare.com/ajax/libs/labjs/2.0.3/LAB.min.js'));
       // ********* CUSTOM, NON-STANDARD BETTERLINK
     </script>
 
-    <!-- GA -->
     <script>
+      // GA
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
