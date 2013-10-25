@@ -164,6 +164,10 @@ h3 {
 	margin: 25px 0px;
 }
 
+.super-spacer {
+	margin: 75px 0px;
+}
+
 /* reset for bootstrap prettyprint */
 .prettyprint {
 	margin-bottom: 0px;
