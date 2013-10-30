@@ -9,10 +9,10 @@
     <title>Betterlink</title>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/the-big-picture.css" rel="stylesheet">
-    <link href="css/betterlink-site.css" rel="stylesheet">
+    <link href="/css/the-big-picture.css" rel="stylesheet">
+    <link href="/css/betterlink-site.css" rel="stylesheet">
 
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="http://betterlink.co"/>
   </head>
 
@@ -27,15 +27,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Betterlink</a>
+          <a class="navbar-brand" href="/index.html">Betterlink</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="betterlink-site-nav" class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Get Betterlink</a></li>
-            <li><a href="docs.html">Documentation</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="active"><a href="/index.html">Get Betterlink</a></li>
+            <li><a href="/docs.html">Documentation</a></li>
+            <li><a href="/contact.html">Contact</a></li>
             <li class="content-tbd"><a href="#about">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right content-tbd">
@@ -70,7 +70,7 @@
 
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-          <img src="images/Betterlink_Example_Desktop.gif" class="img-responsive" alt="Betterlink Example">
+          <img src="/images/Betterlink_Example_Desktop.gif" class="img-responsive" alt="Betterlink Example">
         </div>
       </div>
 
@@ -114,7 +114,7 @@
                   <li>handling dyanmic content on pages</li>
                   <li>supporting links for desktop and mobile</li>
                 </ul>
-                <p>...or anything else, please refer to our full <a href="docs.html">documentation</a>.</p>
+                <p>...or anything else, please refer to our full <a href="/docs.html">documentation</a>.</p>
               </div>
             </div>
             <div class="info-bar tab-test">
@@ -130,7 +130,7 @@
         <div class="column">
           <div class="col-lg-2 visible-lg">
             <div class="text-center">
-              <object data="images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px">
+              <object data="/images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px">
                 <span>--></span>
               </object>
             </div>
@@ -139,7 +139,7 @@
         <div class="column">
           <div class="hidden-lg">
             <div class="text-center">
-              <object data="images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px" style="-webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -ms-transform:rotate(90deg);">
+              <object data="/images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px" style="-webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -ms-transform:rotate(90deg);">
                 <span>--></span>
               </object>
             </div>
@@ -176,7 +176,7 @@
                 <div class="well well-sm message-block">
                   <p>Quick and simple answer: insert the script right before the closing <code>&lt;/body&gt;</code> tag on your pages</p>
                 </div>
-                <p>For more details, reference our <a href="docs.html">documentation</a> on placement.</p>
+                <p>For more details, reference our <a href="/docs.html">documentation</a> on placement.</p>
               </div>
               <div id="browser-support" class="tab-pane fade info-item">
                 <h2>Browser Support</h2>
@@ -234,15 +234,15 @@
         var betterlinkSource = "//code.betterlink.co/betterlink-bespoke.js";
 
         $LAB
-          .script("js/jquery.js").wait()
+          .script("/js/jquery.js").wait()
           .script("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js").wait()
-          .script("js/betterlink-site.js")
+          .script("/js/betterlink-site.js")
           .script(betterlinkSource)
           .wait(function() {
             betterlink.config.preserveHash = true;
             betterlink.init({setScriptSource: 'within source'});
           })
-          .script("js/google-code-prettify/run_prettify.js");
+          .script("/js/google-code-prettify/run_prettify.js");
       }
 
       (function(d,s,src) {
