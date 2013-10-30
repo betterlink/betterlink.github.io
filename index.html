@@ -95,7 +95,7 @@
       if(!d.getElementById(id)){
       js=d.createElement(s); js.id = id; js.defer = true;
       js.src="//code.betterlink.co/betterlink.js";
-      js.setAttribute('data-script_source','within source');
+      js.setAttribute('data-script-source','within source');
       fjs.parentNode.insertBefore(js,fjs);}
       }(document,'script','betterlink-js'));
     &lt;/script&gt;</code></pre>
@@ -240,7 +240,7 @@
           .script(betterlinkSource)
           .wait(function() {
             betterlink.config.preserveHash = true;
-            betterlink.init();
+            betterlink.init({setScriptSource: 'within source'});
           })
           .script("js/google-code-prettify/run_prettify.js");
       }
