@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Betterlink Advanced Setup">
+    <meta name="author" content="Betterlink">
+
+    <title>Betterlink - Documentation - Advanced Setup</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/blog-post.css" rel="stylesheet">
+    <link href="/css/betterlink-site.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="http://betterlink.co/docs/advanced-setup"/>
+  </head>
+
+  <body id="information-page">
+
+    <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Betterlink</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="betterlink-site-nav" class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/index.html">Get Betterlink</a></li>
+            <li class="active"><a href="/docs.html">Documentation</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li class="content-tbd"><a href="#about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right content-tbd">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Contribute</a></li>
+                <li><a href="#">API and Docs</a></li>
+                <li><a href="https://github.com/betterlink">On GitHub</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Betterlink Documentation</h1>
+          <p class="lead"><span class="glyphicon glyphicon-check"></span> everything you want to know</p>
+
+          <hr>
+
+          <h2>Advanced Setup</h2>
+          <p class="lead">Customization options, dynamic content, mobile redirection -- we've got you covered.</p>
+
+          <p>The <a href="/docs.html">basic setup</a> works for most sites, but we know that some sites have different needs (our own homepage is a great example!). This resource will help you when you need more than the one-size-fits-all version of Betterlink.</p>
+
+          <hr>
+
+          <h3>Mobile + Desktop Support</h3>
+
+          <p>This is probably the most important item to check-off. We want to ensure that anything that one of your visitors selects on your site can be easily accessed by a friend visiting on their mobile device. The good news: Betterlink supports this right out of the box.</p>
+          <p>Although we care about a lot of differnet elements of a submission (the URL of the page, where the submission sits relative to the whole webpage, or your browser version), what's most important is the actual content that's selected. As long as this text exists on both the desktop and mobile versions of your site, chances are we'll be able to find it.</p>
+          <p>This is important because even if you're not using a responsive version of a single webpage, but an entirely different page for mobile content, it will still be possible for Betterlink to provide the right experience for your visitors. <strong>However</strong>, it is critical that you pass along URL parameters to your mobile-specific web address during a site redirection.</p>
+          <p>Here's what we mean: <a href="http://en.wikipedia.org/wiki/Hyperlink?bl-sid=10" target="_blank" class="demo-link">Wikipedia</a></p>
+          <p>The exact URL for this link is <code>http://en.wikipedia.org/wiki/Hyperlink?bl-sid=10</code>. But if you visit this link from a mobile device, you'll land at <code>http://en.m.wikipedia.org/wiki/Hyperlink?bl-sid=10</code>. It's subtle, but the subdomain was changed to <strong><code>en.m</code></strong>.</p>
+          <p>Because the Betterlink Selection ID (<code>bl-sid</code>) was transferred to the new web address, everything worked as expected.</p>
+          <p>The details for how to accomplish this are specific to your website and how you have configured your webserver.</p>
+
+          <hr>
+
+          <h3>Dynamic and User-Generated Content</h3>
+
+          <p>Similar to our notes on Mobile Support, what's most important for Betterlink is that the text content that was previously selected can be found on your webpage the next time it is loaded. A few items could complicate this:</p>
+          <ul>
+            <li>Manual edits to the page content <small>(ex: <a href="http://www.nytimes.com/2013/10/21/arts/music/in-hungary-a-new-opera-joins-the-chorus-against-anti-semitism.html?_r=0&adxnnl=1&ref=music&adxnnlx=1383186941-G8oLWx8wksOAQEUK3f/8TA&bl-sid=12">a correction</a> in a news article)</small></li>
+            <li>In-page pagination <small>(ex: <a href="http://en.blog.wordpress.com/2009/02/19/comment-threading-is-here-plus-other-cool-comment-settings/comment-page-2/#comments">comment pages</a> or a <a href="http://www.huffingtonpost.com/2013/09/09/food-challenge_n_3881288.html">slideshow</a>)</small></li>
+            <li>Content that lazy-loads after the rest of the page has loaded</li>
+            <li>Landing pages with daily content <small>(ex: any <a href="http://www.nytimes.com/">news homepage</a>)</small></li>
+          </ul>
+          <p>There are a few tactics we can use to resolve these situations.</p>
+
+          <h4>Permanent Links</h4>
+
+          <p>Betterlink supports a special configuration option that can be supplied at any point during or after initialization: <code>permalink</code>. In the most common example, this should be used for blog posts where the URL is dynamic and may change.</p>
+          <p>Use is simple. The following JavaScript can be applied at any point after the Betterlink global variable has loaded:</p>
+          <pre class="prettyprint"><code>    betterlink.config.permalink = "http://example.org/your-website?param=true";</code></pre>
+          <p>After this property is set, any subsequent URL submissions will use this as the base of the newly-generated URL.</p>
+
+          <h5>Permalinks + Daily Content</h5>
+
+          <p>Suppose you're running a blog where the frontpage is the most recently-posted article. Joel Spolsky's blog can serve as a good example: <a href="http://joelonsoftware.com/">http://joelonsoftware.com/</a>.</p>
+          <p>In this example, on page load, you should set Betterlink's <code>permalink</code> as the address of the source article. For a more complete solution, you may need to account for multiple articles on the same page.</p>
+
+          <h5>Permalinks + lazy-loading</h5>
+
+          <p>In some instances, it makes sense to delay loading content on your page until other more-important content has loaded. Comment threads are a common example of content that loads after a user has scrolled far enough down the page. However, Betterlink will have trouble finding this content when your page is loading.</p>
+          <p>Sometimes these comment sections, especially third-party solutions, have their own permalinks or other parameters that can be added to your page URL to force the content to load early. If you supply these same parameters to Betterlink as part of <code>betterlink.config.permalink</code>, then visitors will have no trouble finding your content.</p>
+
+          <!-- <h4>Fragment Identifiers</h4> -->
+
+          <!-- Explain hashes; Use them to load in-page pagination -->
+
+        </div>
+
+        <div class="col-lg-4">
+          <div class="well documentation-index">
+            <h4>Full Documentation</h4>
+            <ul class="list-unstyled">
+              <li><a href="/docs.html">The Basics</a></li>
+              <li class="content-tbd"><a href="#">Technical Details and API</a></li>
+              <li class="active">Advanced Setup</li>
+              <li class="content-tbd"><a href="#">How to Contribute</a></li>
+            </ul>
+          </div><!-- /well -->
+        </div>
+
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+
+    <!-- javascript -->
+    <script src="/js/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/google-code-prettify/run_prettify.js"></script>
+
+    <!-- Example use of betterlink.js script here -->
+    <script>
+      (function(d,s,id){
+        var js,fjs = d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+        js=d.createElement(s); js.id = id; js.defer = true;
+        js.src="//code.betterlink.co/betterlink.js";
+        js.setAttribute('data-script_source','within source');
+        fjs.parentNode.insertBefore(js,fjs);}
+      }(document,'script','betterlink-js'));
+    </script>
+
+    <!-- GA -->
+    <!--<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44897744-1', 'betterlink.co');
+      ga('send', 'pageview');
+    </script>-->
+  </body>
+</html>
