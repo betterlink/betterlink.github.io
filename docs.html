@@ -87,6 +87,9 @@
       fjs.parentNode.insertBefore(js,fjs);}
       }(document,'script','betterlink-js'));
     &lt;/script&gt;</code></pre>
+          <p>In simpler terms, this creates the following script element for your page:</p>
+          <pre class="prettyprint"><code>    &lt;script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"&gt;&lt;/script&gt;</code></pre>
+          <p>The only difference is that we structure the script tag specially so that it doesn't block any other content on your page from loading.</p>
           
           <h4>Script Placement</h4>
           
