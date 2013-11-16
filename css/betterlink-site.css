@@ -192,3 +192,7 @@ h3 {
 	.documentation-index > ul > .active {
 		color: #999;
 	}
+
+.detailed-description {
+	padding-left: 20px;
+}
