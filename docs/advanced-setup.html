@@ -75,7 +75,7 @@
           <p>This is important because even if you're not using a responsive version of a single webpage, but an entirely different page for mobile content, it will still be possible for Betterlink to provide the right experience for your visitors. <strong>However</strong>, it is critical that you pass along URL parameters to your mobile-specific web address during a site redirection.</p>
           <p>Here's what we mean: <a href="http://en.wikipedia.org/wiki/Hyperlink?bl-sid=10" target="_blank" class="demo-link">Wikipedia</a></p>
           <p>The exact URL for this link is <code>http://en.wikipedia.org/wiki/Hyperlink?bl-sid=10</code>. But if you visit this link from a mobile device, you'll land at <code>http://en.m.wikipedia.org/wiki/Hyperlink?bl-sid=10</code>. It's subtle, but the subdomain was changed to <strong><code>en.m</code></strong>.</p>
-          <p>Because the Betterlink Selection ID (<code>bl-sid</code>) was transferred to the new web address, everything worked as expected.</p>
+          <p>Because the Betterlink Selection ID (<code>bl-sid</code>) was transferred to the new web address, everything works as expected.</p>
           <p>The details for how to accomplish this are specific to your website and how you have configured your webserver.</p>
 
           <hr>
@@ -91,11 +91,11 @@
           </ul>
           <p>There are a few tactics we can use to resolve these situations.</p>
 
-          <h4>Permanent Links</h4>
+          <h4>Tactic 1: Permanent Links</h4>
 
           <p>Betterlink supports a special configuration option that can be supplied at any point during or after initialization: <code>permalink</code>. In the most common example, this should be used for blog posts where the URL is dynamic and may change.</p>
           <p>Use is simple. The following JavaScript can be applied at any point after the Betterlink global variable has loaded:</p>
-          <pre class="prettyprint"><code>    betterlink.config.permalink = "http://example.org/your-website?param=true";</code></pre>
+          <pre class="prettyprint"><code>    betterlink.config.permalink = "http://example.org/your-website?example_param=true";</code></pre>
           <p>After this property is set, any subsequent URL submissions will use this as the base of the newly-generated URL.</p>
 
           <h5>Permalinks + Daily Content</h5>
@@ -108,9 +108,34 @@
           <p>In some instances, it makes sense to delay loading content on your page until other more-important content has loaded. Comment threads are a common example of content that loads after a user has scrolled far enough down the page. However, Betterlink will have trouble finding this content when your page is loading.</p>
           <p>Sometimes these comment sections, especially third-party solutions, have their own permalinks or other parameters that can be added to your page URL to force the content to load early. If you supply these same parameters to Betterlink as part of <code>betterlink.config.permalink</code>, then visitors will have no trouble finding your content.</p>
 
-          <!-- <h4>Fragment Identifiers</h4> -->
+          <h4>Tactic 2: Fragment Identifiers (Hashes)</h4>
 
-          <!-- Explain hashes; Use them to load in-page pagination -->
+          <p>Fragment identifiers are a technique that often allow a webpage to load dynamic content. You can see examples of this on the <a href="http://betterlink.io">Betterlink homepage</a> -- each of the small Frequently Asked Question links uses a URL with a fragment identifier to update the page. For example: <code>http://betterlink.io/#placement-tips</code>. That <code>#placement-tips</code> is the fragment identifer (often called a hash).</p>
+
+          <h5>Hashes + pagination and dynamic content</h5>
+
+          <p>Betterlink has special configuration option, <code>preserve_hash</code>, that lets us load dynamic content on webpages. With this option, we'll be able to load URLs like <code>http://betterlink.io/?bl-sid=3#internationalization</code> (notice how it contains both a Betterlink Selection ID <em>and</em> a hash) to use Betterlink on pages that require a hash to show the desired content.</p>
+          <p>Unlike the previous <code>permalink</code> option, this feature <strong>must</strong> be enabled before Betterlink's initialization. Since inititalization happens automatically, we'll need to take a few extra steps for setup.</p>
+          <p><ol>
+            <li>Use <code>betterlink-bespoke.js</code></li>
+            <li>Set <code>preserve_hash</code></li>
+            <li>Call Betterlink initialization</li>
+          </ol></p>
+          <p><b>1.</b> <code>betterlink-bespoke.js</code> is a special build of Betterlink that pauses initialization and allows us to set configuration options. Using it is easy: simply replace your use of <code>betterlink.js</code>. The full path can be found at:</p>
+          <pre class="prettyprint"><code>    //code.betterlink.io/betterlink-bespoke.js</code></pre>
+          <p><b>2.</b> After Betterlink loads, set the appropriate configuration option.</p>
+          <pre class="prettyprint"><code>    betterlink.config.preserve_hash = true;</code></pre>
+          <p><b>3.</b> Finally, initialize Betterlink. In the below example, we're additionally passing an initialization option into Betterlink to inform us of the source of the script (for example, within the source of the page, instead of injected by a Chrome Extension).</p>
+          <pre class="prettyprint"><code>    betterlink.init({setScriptSource: 'within source'});</code></pre>
+          <p>To make our lives easier, this type of implementation is best executed with a <a href="https://www.google.com/search?q=script+loader">Script Loader</a>. Below is a simplified version of the script that is used on the homepage for <code>betterlink.io</code>.</p>
+          <pre class="prettyprint"><code>    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/labjs/2.0.3/LAB.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+      $LAB.script("//code.betterlink.io/betterlink-bespoke.js")
+          .wait(function() {
+            betterlink.config.preserveHash = true;
+            betterlink.init({setScriptSource: 'within source'});
+          });
+    &lt;/script&gt;</code></pre>
 
         </div>
 
