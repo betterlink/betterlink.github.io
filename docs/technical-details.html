@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Betterlink Technical Details">
+    <meta name="author" content="Betterlink">
+
+    <title>Betterlink - Documentation - Technical Details</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/blog-post.css" rel="stylesheet">
+    <link href="/css/betterlink-site.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="http://betterlink.io/docs/technical-details"/>
+  </head>
+
+  <body id="information-page">
+
+    <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Betterlink</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="betterlink-site-nav" class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/index.html">Get Betterlink</a></li>
+            <li class="active"><a href="/docs.html">Documentation</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li class="content-tbd"><a href="#about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right content-tbd">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Contribute</a></li>
+                <li><a href="#">API and Docs</a></li>
+                <li><a href="https://github.com/betterlink">On GitHub</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Betterlink Documentation</h1>
+          <p class="lead"><span class="glyphicon glyphicon-check"></span> everything you want to know</p>
+
+          <hr>
+
+          <h2>Technical Details</h2>
+          <p class="lead">Browser support, framework dependencies, and other details for technical integration</p>
+
+          <p>Trying to determine if Betterlink will integrate well with your website? The short answer: <strong>Yes, Betterlink will work!</strong></p>
+          <p>If you need more than out steadfast assurance, check out the detailed sections below.</p>
+
+          <hr>
+
+          <h3>Browser Support</h3>
+
+          <p>Betterlink has very wide browser support. There's a pretty simple reason for this:</p>
+          <div class="well well-sm message-block">
+            <p>Betterlink should only be additive to a site and never take away from the web experience.</p>
+            <p>We're striving to complement and replace the links people already share -- it's unfair for us to limit the ability to interact with a webpage any more than a visitor would be able to naturally.</p>
+          </div>
+          <p>The short answer: Betterlink is supported by all modern browsers and most older browsers.</p>
+          <p>IE7+ is officially supported, and IE6 <em>should</em> work (however, it has not been thoroughly tested).</p>
+
+          <hr>
+
+          <h3>International Support</h3>
+
+          <p>If there's text that displays on your page, Betterlink will be able to link straight to it. It doesn't matter if you say 'hello' as 你好 or שָׁלוֹם.</p>
+          <p>Yes, that includes emoji too <span style="font-size:24px;">&#x263A;</span></p>
+          <p>Give it a shot to see for yourself: <a class="demo-link" href="http://betterlink.io/docs/technical-details?bl-sid=1" rel="nofollow">link to 'hello'</a></p>
+
+          <hr>
+
+          <h3>Frameworks</h3>
+
+          <p>Betterlink <strong>does not</strong> use any external JavaScript frameworks (ex: jQuery, MooTools). You also don't have to worry about when Betterlnk loads on your page (i.e., no external dependencies or side effects).</p>
+          <p>In addition to our 'Plain Old JavaScript', Betterlink may also load the <a href="http://bestiejs.github.io/json3/">JSON3 polyfill</a> to support JSON parsing in older browsers.</p>
+
+          <h4>Module Loading</h4>
+
+          <p>Betterlink does not yet support <a href="https://github.com/amdjs/amdjs-api/wiki">AMD</a> or <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> for loading Betterlink as a module.</p>
+
+        </div>
+
+        <div class="col-lg-4">
+          <div class="well documentation-index">
+            <h4>Full Documentation</h4>
+            <ul class="list-unstyled">
+              <li><a href="/docs.html">The Basics</a></li>
+              <li class="active">Technical Details and Integration</li>
+              <li><a href="/docs/advanced-setup.html">Advanced Setup</a></li>
+              <li class="content-tbd"><a href="#">How to Contribute</a></li>
+            </ul>
+          </div><!-- /well -->
+        </div>
+
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+
+    <!-- javascript -->
+    <script src="/js/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/google-code-prettify/run_prettify.js"></script>
+
+    <!-- Example use of betterlink.js script here -->
+    <script>
+      (function(d,s,id){
+        var js,fjs = d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+        js=d.createElement(s); js.id = id; js.defer = true;
+        js.src="//code.betterlink.io/betterlink.js";
+        js.setAttribute('data-script-source','within source');
+        fjs.parentNode.insertBefore(js,fjs);}
+      }(document,'script','betterlink-js'));
+    </script>
+
+    <script>
+      // GA
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-45392465-1', 'betterlink.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
