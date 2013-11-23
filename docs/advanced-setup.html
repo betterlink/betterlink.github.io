@@ -119,17 +119,17 @@
           <h5>Hashes + pagination and dynamic content</h5>
 
           <div class="detailed-description">
-            <p>Betterlink has special configuration option, <code>preserve_hash</code>, that lets us load dynamic content on webpages. With this option, we'll be able to load URLs like <code>http://betterlink.io/?bl-sid=3#internationalization</code> (notice how it contains both a Betterlink Selection ID <em>and</em> a hash) to use Betterlink on pages that require a hash to show the desired content.</p>
+            <p>Betterlink has special configuration option, <code>preserveHash</code>, that lets us load dynamic content on webpages. With this option, we'll be able to load URLs like <code>http://betterlink.io/?bl-sid=3#internationalization</code> (notice how it contains both a Betterlink Selection ID <em>and</em> a hash) to use Betterlink on pages that require a hash to show the desired content.</p>
             <p>Unlike the previous <code>permalink</code> option, this feature <strong>must</strong> be enabled before Betterlink's initialization. Since inititalization happens automatically, we'll need to take a few extra steps for setup.</p>
             <p><ol>
               <li>Use <code>betterlink-bespoke.js</code></li>
-              <li>Set <code>preserve_hash</code></li>
+              <li>Set <code>preserveHash</code></li>
               <li>Call Betterlink initialization</li>
             </ol></p>
             <p><b>1.</b> <code>betterlink-bespoke.js</code> is a special build of Betterlink that pauses initialization and allows us to set configuration options. Using it is easy: simply replace your request for <code>betterlink.js</code>. The full path can be found at:</p>
             <pre class="prettyprint"><code>    //code.betterlink.io/betterlink-bespoke.js</code></pre>
             <p><b>2.</b> After Betterlink loads, set the appropriate configuration option.</p>
-            <pre class="prettyprint"><code>    betterlink.config.preserve_hash = true;</code></pre>
+            <pre class="prettyprint"><code>    betterlink.config.preserveHash = true;</code></pre>
             <p><b>3.</b> Finally, initialize Betterlink. In the below example, we're additionally passing an initialization option into Betterlink to inform us of the source of the script (for example, within the source of the page, instead of injected by a Chrome Extension).</p>
             <pre class="prettyprint"><code>    betterlink.init({setScriptSource: 'within source'});</code></pre>
             <p>To make our lives easier, this type of implementation is best executed with a <a href="https://www.google.com/search?q=script+loader">Script Loader</a>. Below is a simplified version of the script that is used on the homepage for <code>betterlink.io</code>.</p>
