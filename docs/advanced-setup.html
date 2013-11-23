@@ -73,8 +73,8 @@
           <p>This is probably the most important item to check-off. We want to ensure that anything that one of your visitors selects on your site can be easily accessed by a friend visiting on their mobile device. The good news: Betterlink supports this right out of the box.</p>
           <p>Although we care about a lot of differnet elements of a submission (the URL of the page, where the submission sits relative to the whole webpage, or your browser version), what's most important is the actual content that's selected. As long as this text exists on both the desktop and mobile versions of your site, chances are we'll be able to find it.</p>
           <p>This is important because even if you're not using a responsive version of a single webpage, but an entirely different page for mobile content, it will still be possible for Betterlink to provide the right experience for your visitors. <strong>However</strong>, it is critical that you pass along URL parameters to your mobile-specific web address during a site redirection.</p>
-          <p>Here's what we mean: <a href="http://en.wikipedia.org/wiki/Hyperlink?bl-sid=10" target="_blank" class="demo-link">Wikipedia</a></p>
-          <p>The exact URL for this link is <code>http://en.wikipedia.org/wiki/Hyperlink?bl-sid=10</code>. But if you visit this link from a mobile device, you'll land at <code>http://en.m.wikipedia.org/wiki/Hyperlink?bl-sid=10</code>. It's subtle, but the subdomain was changed to <strong><code>en.m</code></strong>.</p>
+          <p>Here's what we mean: <a href="http://en.wikipedia.org/wiki/Hyperlink?bl-sid=1" target="_blank" class="demo-link">Wikipedia</a></p>
+          <p>The exact URL for this link is <code>http://en.wikipedia.org/wiki/Hyperlink?bl-sid=1</code>. But if you visit this link from a mobile device, you'll land at <code>http://en.m.wikipedia.org/wiki/Hyperlink?bl-sid=1</code>. It's subtle, but the subdomain was changed to <strong><code>en.m</code></strong>.</p>
           <p>Because the Betterlink Selection ID (<code>bl-sid</code>) was transferred to the new web address, everything works as expected.</p>
           <p>The details for how to accomplish this are specific to your website and how you have configured your webserver.</p>
 
@@ -84,7 +84,7 @@
 
           <p>Similar to our notes on Mobile Support, what's most important for Betterlink is that the text content that was previously selected can be found on your webpage the next time it is loaded. A few items could complicate this:</p>
           <ul>
-            <li>Manual edits to the page content <small>(ex: <a href="http://www.nytimes.com/2013/10/21/arts/music/in-hungary-a-new-opera-joins-the-chorus-against-anti-semitism.html?_r=0&adxnnl=1&ref=music&adxnnlx=1383186941-G8oLWx8wksOAQEUK3f/8TA&bl-sid=12">a correction</a> in a news article)</small></li>
+            <li>Manual edits to the page content <small>(ex: <a href="http://www.nytimes.com/2013/10/21/arts/music/in-hungary-a-new-opera-joins-the-chorus-against-anti-semitism.html?_r=0&adxnnl=1&ref=music&adxnnlx=1383186941-G8oLWx8wksOAQEUK3f/8TA&bl-sid=5">a correction</a> in a news article)</small></li>
             <li>In-page pagination <small>(ex: <a href="http://en.blog.wordpress.com/2009/02/19/comment-threading-is-here-plus-other-cool-comment-settings/comment-page-2/#comments">comment pages</a> or a <a href="http://www.huffingtonpost.com/2013/09/09/food-challenge_n_3881288.html">slideshow</a>)</small></li>
             <li>Content that lazy-loads after the rest of the page has loaded</li>
             <li>Landing pages with daily content <small>(ex: any <a href="http://www.nytimes.com/">news homepage</a>)</small></li>
@@ -119,7 +119,7 @@
           <h5>Hashes + pagination and dynamic content</h5>
 
           <div class="detailed-description">
-            <p>Betterlink has special configuration option, <code>preserveHash</code>, that lets us load dynamic content on webpages. With this option, we'll be able to load URLs like <code>http://betterlink.io/?bl-sid=3#internationalization</code> (notice how it contains both a Betterlink Selection ID <em>and</em> a hash) to use Betterlink on pages that require a hash to show the desired content.</p>
+            <p>Betterlink has special configuration option, <code>preserveHash</code>, that lets us load dynamic content on webpages. With this option, we'll be able to load URLs like <code>http://betterlink.io/?bl-sid=4#internationalization</code> (notice how it contains both a Betterlink Selection ID <em>and</em> a hash) to use Betterlink on pages that require a hash to show the desired content.</p>
             <p>Unlike the previous <code>permalink</code> option, this feature <strong>must</strong> be enabled before Betterlink's initialization. Since inititalization happens automatically, we'll need to take a few extra steps for setup.</p>
             <p><ol>
               <li>Use <code>betterlink-bespoke.js</code></li>
