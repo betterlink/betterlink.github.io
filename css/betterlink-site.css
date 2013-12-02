@@ -47,6 +47,50 @@ h3 {
 }
 /* Styles influenced by Bootswatch 'Readable' */
 
+.action-panel {
+	text-align: center;
+	background-color: #f5f5f5;
+	border: 1px solid #888;
+}
+
+.call-to-action {
+	padding-top: 10px;
+	padding-bottom: 24px;
+}
+
+	.call-to-action > h2 {
+		font-size: 24px;
+		margin-top: 5px;
+	}
+
+	.call-to-action > .btn-primary {
+		color: #ffffff;
+		background-color: #f0ad4e;
+		border-color: #eea236;
+	}
+
+	.call-to-action > .btn-primary:hover,
+	.call-to-action > .btn-primary:focus,
+	.call-to-action > .btn-primary:active {
+		color: #ffffff;
+		background-color: #ed9c28;
+		border-color: #d58512;
+	}
+
+	.call-to-action > .btn-secondary {
+		color: #ffffff;
+		background-color: #d9534f;
+		border-color: #d43f3a;
+	}
+
+	.call-to-action > .btn-secondary:hover,
+	.call-to-action > .btn-secondary:focus,
+	.call-to-action > .btn-secondary:active {
+		color: #ffffff;
+		background-color: #d2322d;
+		border-color: #ac2925;
+	}
+
 .code-header {
 	float: left;
 	background: #767676;
@@ -139,7 +183,12 @@ h3 {
 		padding: 0px 0px 0px 15px;
 	}
 
-	.info-item > .prettyprint, .info-item > .prettyprinted {
+	.info-item > .small-script {
+		margin-left: 15px;
+		margin-bottom: 10px;
+	}
+
+	.info-item > .code-demo, .info-item > .code-demo {
 		border: 0;
 		padding: 0;
 	}
