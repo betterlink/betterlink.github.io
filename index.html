@@ -87,14 +87,14 @@
               <div class="col-sm-6">
                 <div class="call-to-action">
                   <h2>Do you manage a website?</h2>
-                  <a class="btn btn-primary btn-lg" href="/website-setup.html">Setup Betterlink on my site</a>
+                  <a id="direct-to-webmaster-setup" class="btn btn-primary btn-lg" href="/website-setup.html">Setup Betterlink on my site</a>
                 </div>
               </div>
 
               <div class="col-sm-6">
                 <div class="call-to-action">
                   <h2>Want to enable for yourself?</h2>
-                  <a class="btn btn-secondary btn-lg" href="/browser-extension-setup.html">Turn on Betterlink for my browser</a>
+                  <a id="direct-to-extension-setup" class="btn btn-secondary btn-lg" href="/browser-extension-setup.html">Turn on Betterlink for my browser</a>
                 </div>
               </div>
             </div>
@@ -138,6 +138,13 @@
 
       ga('create', 'UA-45392465-1', 'betterlink.io');
       ga('send', 'pageview');
+
+      $('#direct-to-webmaster-setup').click(function() {
+        ga('send', 'event', 'button', 'click', 'direct-to-webmaster-setup');
+      });
+      $('#direct-to-extension-setup').click(function() {
+        ga('send', 'event', 'button', 'click', 'direct-to-extension-setup');
+      });
     </script>
 
   </body>
