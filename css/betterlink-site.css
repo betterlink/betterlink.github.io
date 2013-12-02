@@ -105,6 +105,10 @@ h3 {
 	display: none !important;
 }
 
+#intro-bullets {
+	font-size: 20px;
+}
+
 .info-bar {
 	margin: 5px 0px;
 }
@@ -244,4 +248,8 @@ h3 {
 
 .detailed-description {
 	padding-left: 20px;
+}
+
+pre.detailed-description {
+	margin-left: 20px;
 }

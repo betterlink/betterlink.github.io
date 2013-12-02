@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="full" lang="en"><!-- The full page image background will only work if the html has the custom class set to it! Don't delete it! -->
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +9,14 @@
     <title>Betterlink - Website Script Setup</title>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/the-big-picture.css" rel="stylesheet">
+    <link href="/css/blog-post.css" rel="stylesheet">
     <link href="/css/betterlink-site.css" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="http://betterlink.io/website-setup"/>
   </head>
 
-  <body id="homepage">
+  <body id="information-page">
 
     <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
       <div class="container">
@@ -51,34 +51,44 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>
-    
+
     <div class="container">
+
       <div class="row">
-        <div id="introduction" class="col-lg-6 col-sm-12">
-          <h1>Betterlink</h1>
-          <ul>
+        <div class="col-lg-8">
+          <h1>Betterlink - Webmaster Basics</h1>
+
+          <ul id="intro-bullets">
             <li>Add one script to your website</li>
             <li>Enable links directly to the content people want to see</li>
           </ul>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="spacer">
+          <hr>
         </div>
-      </div>
+        <div class="col-md-8">
 
-      <div class="row">
-        <div class="column">
-          <div class="col-lg-5 col-sm-12">
-            <div class="code-header">
-              Copy this JavaScript
-            </div>
-            <div id="info-box-script" class="tab-content panel info-box">
-              <div id="script-sample" class="tab-pane fade active in info-item">
-                <pre class="prettyprint code-demo">
-                  <code>
-    &lt;script&gt;
+          <p class="lead">With Betterlink, your visitors can share and save your content easier than ever before.</p>
+          <p>Betterlink is a basic add-on for your website. Once enabled, all of your content is immediately linkable. The same way you might share a link to a page you found interesting, <strong>now</strong> your users can link directly to the piece of the page you want them to see.</p>
+          <p>To get a sense of what this means, check out this link: <a class="demo-link" href="http://betterlink.io/website-setup?bl-sid=3" rel="nofollow">click here</a></p>
+          <p>If you load this page from the above link, you'll end up right here at this paragraph. Pretty cool? It's easy to setup. For additional information on:</p>
+          <ul>
+            <li>customization options</li>
+            <li>handling dyanmic content on pages</li>
+            <li>supporting links for desktop and mobile</li>
+          </ul>
+          <p>...or anything else, please refer to our full <a href="/docs/basic-setup.html">documentation</a>. Below, we'll sprint through the one-size-fits-most setup.</p>
+
+          <hr>
+          <h3>Bullet Point Setup</h3>
+          <p>In most cases, there's two basic steps. For details on these steps, please check the full <a href="/docs/basic-setup.html">documentation</a>.</p>
+          <p><ol>
+            <li>Copy the Betterlink script</li>
+            <li>Paste into your webpages</li>
+          </ol></p>
+
+          <p><b>1.</b> Copy the below script.</p>
+          <h4 class="detailed-description">Script Text</h4>
+          <pre class="prettyprint detailed-description"><code>    &lt;script&gt;
       (function(d,s,id){
       var js,fjs = d.getElementsByTagName(s)[0];
       if(!d.getElementById(id)){
@@ -88,160 +98,75 @@
       fjs.parentNode.insertBefore(js,fjs);}
       }(document,'script','betterlink-js'));
     &lt;/script&gt;</code></pre>
-              </div>
-              <div id="how-does-this-work" class="tab-pane fade info-item">
-                <h2>How does this work?</h2>
-                <p>In simpler terms, this creates the following script element for your page:</p>
-                <pre class="prettyprint small-script"><code>&lt;script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"&gt;&lt;/script&gt;</code></pre>
-                <p>The only difference is that we structure the script tag specially so that it doesn't block any other content on your page from loading.</p>
-              </div>
-              <div id="script_documentation" class="tab-pane fade info-item">
-                <h2>Betterlink documentation</h2>
-                <p>By default, simply adding this one script onto your site will instantly enable Betterlink -- to both share new links <strong>and</strong> highlight the content of followed links.</p>
-                <p>For additional information on:</p>
+          <p class="detailed-description">In simpler terms, this creates the following script element for your page:</p>
+          <pre class="prettyprint detailed-description"><code>    &lt;script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"&gt;&lt;/script&gt;</code></pre>
+          <p class="detailed-description">The only difference is that we structure the script tag specially so that it doesn't block any other content on your page from loading.</p>
+
+          <p><b>2.</b> Paste into your webpages.</p>
+          <p class="detailed-description">Make sure you get it on <strong>all</strong> of the pages on your site.</p>
+          <div class="well well-sm message-block detailed-description"><p>Quick and simple answer: you should add Betterlink just before the closing <code>&lt;/body&gt;</code> tag on your webpages</p></div>
+
+          <h4>Initializing Betterlink</h4>
+
+          <p>The good news: If you're following this simple setup, you're all done!</p>
+          <p>When your browser loads the Betterlink script, it will automatically enable content sharing. We'll also automatically check if a visitor followed one of your new special links. If so, we'll take them to the requested portion of the page and highlight the content.</p>
+          <span class="content-tbd"><p>If you're concerned about any of the below topics, check out our <a href="#">Advanced Setup</a>:</p>
+          <ul>
+            <li>Redirecting mobile users <small><em>(so they can see the same highlighted content)</em></small></li>
+            <li>Linking to dynamic content on a page <small><em>(content that changes or displays sometime after the page initially loads)</em></small></li>
+            <li>Linking to content that displays when a hash is loaded in the URL <small><em>(like <code>http://example.com#my_content</code>)</em></small></li>
+            <li>Customizing the look and feel of the highlights</li>
+            <li>Using permalinks to link to pages that change their address</li>
+          </ul></span>
+
+        </div>
+
+        <div class="col-md-4">
+          <div class="well documentation-index">
+            <h4>Get Betterlink</h4>
+            <ul class="list-unstyled">
+              <li><a href="/index.html">Introduction and Demo</a></li>
+              <li class="active">Betterlink Setup
                 <ul>
-                  <li>customization options</li>
-                  <li>handling dyanmic content on pages</li>
-                  <li>supporting links for desktop and mobile</li>
+                  <li class="active">For Webmasters</li>
+                  <li><a href="/browser-extension-setup.html">For Everyone</a></li>
                 </ul>
-                <p>...or anything else, please refer to our full <a href="/docs/basic-setup.html">documentation</a>.</p>
-              </div>
-            </div>
-            <div class="info-bar tab-test">
-              <ul class="info-list">
-                <li class="active"><a href="#script-sample">script sample</a></li>
-                <li><a href="#how-does-this-work">how does this work?</a></li>
-                <li><a href="#script_documentation">betterlink.js documentation</a></li>
-              </ul>
-            </div>
+              </li>
+              <li><a href="/docs/basic-setup.html">Documentation</a></li>
+            </ul>
+          </div><!-- /.well -->
+        </div>
+      </div><!-- /row -->
+
+      <!-- 
+      <hr>
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; Ben Getson 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
           </div>
         </div>
+      </footer> -->
 
-        <div class="column">
-          <div class="col-lg-2 visible-lg">
-            <div class="text-center">
-              <object data="/images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px">
-                <span>--></span>
-              </object>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="hidden-lg">
-            <div class="text-center">
-              <object data="/images/arrow-right7.svg" type="image/svg+xml" height="50px" width="50px" style="-webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -ms-transform:rotate(90deg);">
-                <span>--></span>
-              </object>
-            </div>
-          </div>
-        </div>
 
-        <div class="column">
-          <div class="col-lg-5 col-sm-12">
-            <div class="code-header">
-              Insert into your web page
-            </div>
-            <div id="info-box-html" class="tab-content panel info-box">
-              <div id="placement-example" class="tab-pane fade active in info-item">
-                <pre class="prettyprint code-demo">
-                  <code>
-      .......
-      &lt;link href="css/bootstrap.css" rel="stylesheet"&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-      &lt;div class="container"&gt;
-        &lt;div class="navbar-header"&gt;
-        .......
-      &lt;/div&gt;
-      <span class="code-callout">&lt;!-- Insert Betterlink script here --&gt;</span>
-    &lt;/body&gt;</code></pre>
-              </div>
-              <div id="placement-tips" class="tab-pane fade info-item">
-                <h2>Tips on Betterlink placement</h2>
-                <p>There are two things you want to keep in mind when adding Betterlink to your website:</p>
-                <ol>
-                  <li>loading <em>your own</em> content as fast as possible</li>
-                  <li>ensuring Betterlink loads on <strong>all</strong> of the pages on your site</li>
-                </ol>
-                <div class="well well-sm message-block">
-                  <p>Quick and simple answer: insert the script right before the closing <code>&lt;/body&gt;</code> tag on your pages</p>
-                </div>
-                <p>For more details, reference our <a href="/docs/basic-setup.html">documentation</a> on placement.</p>
-              </div>
-              <div id="browser-support" class="tab-pane fade info-item">
-                <h2>Browser Support</h2>
-                <p>The short answer: Betterlink is supported by all modern browsers and most older browsers.</p>
-                <p>IE7+ is officially supported, and IE6 <em>should</em> work (however, it has not been thoroughly tested).</p>
-              </div>
-              <div id="internationalization" class="tab-pane fade info-item">
-                <h2>International Support</h2>
-                <p>If there's text that displays on your page, Betterlink will be able to link straight to it. It doesn't matter if you say 'hello' as 你好 or שָׁלוֹם.</p>
-                <p>Yes, that includes emoji too <span style="font-size:24px;">&#x263A;</span></p>
-                <p>Give it a shot to see for yourself: <a class="demo-link" href="http://betterlink.io/website-setup?bl-sid=4#internationalization" rel="nofollow">link to 'hello'</a><p>
-              </div>
-            </div>
-            <div class="info-bar tab-test">
-              <ul class="info-list">
-                <li class="active"><a href="#placement-example">example</a></li>
-                <li><a href="#placement-tips">placement tips</a></li>
-                <li><a href="#browser-support">browser support</a></li>
-                <li><a href="#internationalization">international support</a></li>
-              </ul>
-            </div>
-          </div>
-        </div> <!-- /.column -->
+    </div><!-- /.container -->
 
-      </div> <!-- /.row -->
-
-      <div class="row">
-        <div class="super-spacer">
-        </div>
-      </div>
-      <div class="row">
-        <div class="super-spacer">
-        </div>
-      </div>
-    </div> <!-- /.container -->
+    <!-- javascript -->
+    <script src="/js/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/google-code-prettify/run_prettify.js"></script>
 
     <!-- Example use of betterlink.js script here -->
     <script>
-      // Copied and commented below *would* be the standard implementation.
-      // Because we're using JavaScript to show different content based on a
-      // hash provided in the URL, we need a slightly advanced configuration
-      // for this page.
-      // 
-      // (function(d,s,id){
-      //   var js,fjs = d.getElementsByTagName(s)[0];
-      //   if(!d.getElementById(id)){
-      //   js=d.createElement(s); js.id = id; js.defer = true;
-      //   js.src="//code.betterlink.io/betterlink.js";
-      //   js.setAttribute('data-script-source','within source');
-      //   fjs.parentNode.insertBefore(js,fjs);}
-      // }(document,'script','betterlink-js'));
-
-      // CUSTOM, NON-STANDARD BETTERLINK *********
-      function loadHomepageJS() {
-        var betterlinkSource = "//code.betterlink.io/betterlink-bespoke.js";
-
-        $LAB
-          .script("/js/jquery.js").wait()
-          .script("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js").wait()
-          .script("/js/betterlink-site.js")
-          .script(betterlinkSource)
-          .wait(function() {
-            betterlink.config.preserveHash = true;
-            betterlink.init({setScriptSource: 'within source'});
-          })
-          .script("/js/google-code-prettify/run_prettify.js");
-      }
-
-      (function(d,s,src) {
+      (function(d,s,id){
         var js,fjs = d.getElementsByTagName(s)[0];
-        js=d.createElement(s); js.src=src;
-        js.onload=loadHomepageJS;
-        fjs.parentNode.insertBefore(js,fjs);
-      }(document,'script','//cdnjs.cloudflare.com/ajax/libs/labjs/2.0.3/LAB.min.js'));
-      // ********* CUSTOM, NON-STANDARD BETTERLINK
+        if(!d.getElementById(id)){
+        js=d.createElement(s); js.id = id; js.defer = true;
+        js.src="//code.betterlink.io/betterlink.js";
+        js.setAttribute('data-script-source','within source');
+        fjs.parentNode.insertBefore(js,fjs);}
+      }(document,'script','betterlink-js'));
     </script>
 
     <script>
@@ -254,7 +179,5 @@
       ga('create', 'UA-45392465-1', 'betterlink.io');
       ga('send', 'pageview');
     </script>
-
   </body>
-
 </html>
