@@ -91,6 +91,10 @@ h3 {
 		border-color: #ac2925;
 	}
 
+.btn-wrap { /* override bootstrap's .btn class */
+	white-space: normal;
+}
+
 .code-header {
 	float: left;
 	background: #767676;
