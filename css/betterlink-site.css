@@ -53,6 +53,19 @@ h3 {
 	border: 1px solid #888;
 }
 
+.img-responsive.img-center {
+	margin: 0 auto;
+}
+
+#demo-explanation {
+	margin-left: 20px;
+	color: white;
+}
+
+	#demo-explanation > h2 {
+		font-size: 24px;
+	}
+
 .call-to-action {
 	padding-top: 10px;
 	padding-bottom: 24px;
