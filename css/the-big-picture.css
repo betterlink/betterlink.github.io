@@ -10,7 +10,7 @@ p {
 }
 
 .full {
-  background: url('../images/blue cross stitch.jpg') no-repeat center center fixed; /* 1920x1080 */ /* via http://wallpapers87.com/wallpapers/dark-textures-canvas-simple-background-_319723-49.jpg */
+  background: url('../images/blue-cross-stitch.jpg') no-repeat center center fixed; /* 1920x1080 */ /* via http://wallpapers87.com/wallpapers/dark-textures-canvas-simple-background-_319723-49.jpg */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
