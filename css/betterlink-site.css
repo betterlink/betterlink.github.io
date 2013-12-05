@@ -91,6 +91,27 @@ h3 {
 		border-color: #ac2925;
 	}
 
+.feature-assurance {
+	list-style-type: none;
+	font-size: 13px;
+	padding: 0;
+	margin-top: 10px;
+}
+
+	.feature-assurance > li {
+		display: inline;
+	}
+
+	.feature-assurance li + li:before {
+		content: " ";
+	    padding: 0 5px;
+	}
+
+	.feature-assurance > li > .glyphicon {
+		color: #9ACD32; /* yellowgreen */
+		padding-right: 2px;
+	}
+
 .btn-wrap { /* override bootstrap's .btn class */
 	white-space: normal;
 }
