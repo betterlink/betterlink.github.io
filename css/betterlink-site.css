@@ -112,7 +112,7 @@ h3 {
 }
 
 	.feature-assurance > li {
-		display: inline;
+		display: inline-block;
 	}
 
 	.feature-assurance li + li:before {
