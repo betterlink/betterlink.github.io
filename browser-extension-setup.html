@@ -67,6 +67,50 @@
             <li>Once installed, will immediately work on all pages you visit</li>
           </ul>
 
+          <div id="payment-appeal">
+            <h4>Support Betterlink: <a id="display-payment-options" class="btn btn-success" data-toggle="collapse" data-target="#payment-options" href="#" onclick="return false;">Pay via trusted vendors</a></h4>
+            <p>If you've found this service to be valuable, please consider paying for the product. The amount is your choice. This helps us keep the lights on.</p>
+            <div id="payment-options" class="collapse">
+              <ol>
+                <li>Select your price: <input id="user-payment-amount" type="text" value="$5.00" size="8"></input></li>
+                <li>Choose your payment method
+                  <p id="payment-guidance">All major credit cards accepted. Payments via bank account are also supported by PayPal and Amazon Payments.</p>
+                  <ul id="payment-buttons" class="list-unstyled">
+                    <li>
+                      <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_whitebg.gif" border="0">
+                      <!-- <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+                        <input type="hidden" name="returnUrl" value="http://betterlink.io/browser-extension-setup" >
+                        <input type="hidden" name="processImmediate" value="1" >
+                        <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+                        <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+                        <input type="hidden" name="collectShippingAddress" value="0" >
+                        <input type="hidden" name="isDonationWidget" value="0" >
+                        <input type="hidden" name="amazonPaymentsAccountId" value="XICNFFSQKSWQ7SM4V668SIS11K7XIKHTVSCAQ9" >
+                        <input type="hidden" name="cobrandingStyle" value="logo" >
+                        <input type="hidden" name="immediateReturn" value="1" >
+                        <input type="hidden" name="amount" value="USD 5" >
+                        <input type="hidden" name="description" value="Payment for Betterlink browser extension" >
+                        <input type="hidden" name="abandonUrl" value="http://betterlink.io/browser-extension-setup" >
+                        <input type="hidden" name="signatureVersion" value="2" >
+                        <input type="hidden" name="signature" value="w+Q5wgDGWNSGxcBt0kxsQL30KrEdbQHX7Zi/ILXWYDY=" >
+                        <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_whitebg.gif" border="0">
+                      </form> -->
+                    </li>
+                    <li>
+                      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                      <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="6Y862D8YLQS5E">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                      </form> -->
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+          </div>
+
           <h3>Common Questions</h3>
           <h4>If I share a link with someone, will they see my selection?</h4>
           <p class="detailed-description">If they have also installed Betterlink on their browser, yes.</p>
@@ -106,6 +150,28 @@
     <script src="/js/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
+    <script>
+      // Scripts to parse the payment amount and pass to the payment providers
+      function parseUserPaymentAmount(userPrice) {
+        userPrice = userPrice.replace(/[^0-9.]/gi, ''); //strip non numbers and decimals
+        var match = userPrice.match(/((([0-9]+)?\.[0-9]+)|[0-9]+)/);
+        return match ? match[0] : 0.0;
+      }
+
+      function actualAmountInPennies(userPrice) {
+        var parsedAmount = parseFloat(parseUserPaymentAmount(userPrice));
+        return Math.round(parsedAmount * 100);
+      }
+
+      var userPaymentDivId = 'user-payment-amount';
+      var paymentAmount = actualAmountInPennies(document.getElementById(userPaymentDivId).value);
+      $(document).ready(function(){
+        $('#' + userPaymentDivId).on('change keyup paste', function() {
+          paymentAmount = actualAmountInPennies($(this).val());
+        });
+      });
+    </script>
+
     <!-- Example use of betterlink.js script here -->
     <script>
       (function(d,s,id){
@@ -130,6 +196,9 @@
 
       $('#direct-to-chrome-store').click(function() {
         ga('send', 'event', 'button', 'click', 'direct-to-chrome-store');
+      });
+      $('#display-payment-options').click(function() {
+        ga('send', 'event', 'button', 'click', 'toggle-payment-options-display');
       });
     </script>
   </body>

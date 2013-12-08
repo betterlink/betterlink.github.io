@@ -269,6 +269,31 @@ h3 {
 }
 
 /* ********************************** */
+/* Setup CSS */
+#payment-appeal {
+	padding: 2px 20px 10px 20px;
+}
+
+#payment-buttons {
+	margin: 15px 0;
+}
+
+	#payment-buttons > li {
+		display: inline-block;
+	}
+
+	#payment-buttons li + li:before {
+		content: " ";
+	    padding: 0 20px;
+	}
+
+#payment-guidance {
+	font-weight: normal;
+	color: #777;
+	font-size: 10px;
+}
+
+/* ********************************** */
 /* Documentation CSS */
 .demo-link {
 	font-weight: bold;
