@@ -169,6 +169,8 @@
       var userPaymentDivId = 'user-payment-amount';
       var paymentAmount = actualAmountInPennies(document.getElementById(userPaymentDivId).value);
       $(document).ready(function(){
+        updateFormPaymentAmounts(actualAmountInPennies($('#' + userPaymentDivId).val()));
+
         $('#' + userPaymentDivId).on('change keyup paste', function() {
           paymentAmount = actualAmountInPennies($(this).val());
           updateFormPaymentAmounts(paymentAmount);
