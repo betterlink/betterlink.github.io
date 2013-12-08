@@ -77,24 +77,19 @@
                   <p id="payment-guidance">All major credit cards accepted. Payments via bank account are also supported by PayPal and Amazon Payments.</p>
                   <ul id="payment-buttons" class="list-unstyled">
                     <li>
-                      <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_whitebg.gif" border="0">
-                      <!-- <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+                      <form action="https://authorize.Payments.amazon.com/pba/paypipeline" method="post">
                         <input type="hidden" name="returnUrl" value="http://betterlink.io/browser-extension-setup" >
                         <input type="hidden" name="processImmediate" value="1" >
-                        <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
-                        <input type="hidden" name="signatureMethod" value="HmacSHA256" >
                         <input type="hidden" name="collectShippingAddress" value="0" >
                         <input type="hidden" name="isDonationWidget" value="0" >
                         <input type="hidden" name="amazonPaymentsAccountId" value="XICNFFSQKSWQ7SM4V668SIS11K7XIKHTVSCAQ9" >
                         <input type="hidden" name="cobrandingStyle" value="logo" >
                         <input type="hidden" name="immediateReturn" value="1" >
-                        <input type="hidden" name="amount" value="USD 5" >
+                        <input id="amazon-payment-amount" type="hidden" name="amount" value="USD 5" >
                         <input type="hidden" name="description" value="Payment for Betterlink browser extension" >
                         <input type="hidden" name="abandonUrl" value="http://betterlink.io/browser-extension-setup" >
-                        <input type="hidden" name="signatureVersion" value="2" >
-                        <input type="hidden" name="signature" value="w+Q5wgDGWNSGxcBt0kxsQL30KrEdbQHX7Zi/ILXWYDY=" >
                         <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_whitebg.gif" border="0">
-                      </form> -->
+                      </form>
                     </li>
                     <li>
                       <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
@@ -163,11 +158,20 @@
         return Math.round(parsedAmount * 100);
       }
 
+      function updateFormPaymentAmounts(newAmountInPennies) {
+        var amazonDivId = 'amazon-payment-amount';
+        var paypalDivId = 'paypal-payment-amount';
+
+        var stringAmount = '' + (newAmountInPennies / 100).toFixed(2);
+        $('#' + amazonDivId).val('USD ' + stringAmount);
+      }
+
       var userPaymentDivId = 'user-payment-amount';
       var paymentAmount = actualAmountInPennies(document.getElementById(userPaymentDivId).value);
       $(document).ready(function(){
         $('#' + userPaymentDivId).on('change keyup paste', function() {
           paymentAmount = actualAmountInPennies($(this).val());
+          updateFormPaymentAmounts(paymentAmount);
         });
       });
     </script>
