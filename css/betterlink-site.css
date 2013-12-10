@@ -6,12 +6,7 @@ a {
 	color: #6A5ACD; /* slateblue */
 }
 
-#introduction h1 {
-	color: white;
-}
-
 #introduction ul {
-	color: white;
 	font-size: 18px;
 }
 
@@ -47,14 +42,13 @@ h3 {
 }
 /* Styles influenced by Bootswatch 'Readable' */
 
-.action-panel {
-	text-align: center;
-	background-color: #f5f5f5;
-	border: 1px solid #888;
-}
-
 .img-responsive.img-center {
 	margin: 0 auto;
+}
+
+#demo-unit {
+	background-color: #687888;
+	padding: 20px 0;
 }
 
 #demo-explanation {
@@ -66,9 +60,14 @@ h3 {
 		font-size: 24px;
 	}
 
+#call-to-action-row {
+	text-align: center;
+}
+
 .call-to-action {
-	padding-top: 10px;
-	padding-bottom: 24px;
+	padding: 10px 8px 15px 8px;
+	margin-bottom: 20px;
+	background-color: #D6D6D6;
 }
 
 	.call-to-action > h2 {
