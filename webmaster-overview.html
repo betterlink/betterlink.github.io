@@ -1,20 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Setup Betterlink JavaScript Library">
+    <meta name="description" content="Betterlink. Enable links directly to the content people want to see.">
     <meta name="author" content="Betterlink">
 
-    <title>Betterlink - Website Script Setup</title>
+    <title>Betterlink - Overview</title>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/blog-post.css" rel="stylesheet">
     <link href="/css/betterlink-site.css" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="canonical" href="http://betterlink.io/website-setup"/>
+    <link rel="canonical" href="http://betterlink.io/webmaster-overview"/>
   </head>
 
   <body id="information-page">
@@ -57,64 +56,30 @@
 
       <div class="row">
         <div class="col-md-8">
-          <h1>Betterlink - Webmaster Setup</h1>
+          <h1>Betterlink - Webmaster Basics</h1>
 
-          <ul id="intro-bullets">
-            <li>Step 2 of 2: Integrate JavaScript Library</li>
+          <ul id="intro-bullets-with-button">
+            <li><ul id="intro-bullets">
+              <li>Add one script to your website</li>
+              <li>Enable links directly to the content people want to see</li>
+            </ul></li>
+            <li class="get-started-button"><a href="/payments.html" class="btn btn-success">Get Started Now</a></li>
           </ul>
 
           <hr>
 
-          <p class="lead">Adding Betterlink to your website is easy. We'll do most of the heavy-lifting for you.</p>
-          <p>Betterlink comes in two flavors: the <a href="/docs/basic-setup.html">standard setup</a> for most clients, and a <a href="/docs/advanced-setup.html">customizable setup</a> for advanced users. Below, we'll sprint through the one-size-fits-most setup.</p>
-          <p>For more details on:</p>
-          <ul>
-            <li>customization options</li>
-            <li>handling dyanmic content on pages</li>
-            <li>supporting links for desktop and mobile</li>
-          </ul>
-          <p>...or anything else, please refer to our full <a href="/docs/basic-setup.html">documentation</a>.</p>
+          <p class="lead">With Betterlink, your visitors can share and save your content easier than ever before.</p>
+          <p>Betterlink is a basic add-on for your website. Once enabled, all of your content is immediately linkable. The same way you might share a link to a page you found interesting, <strong>now</strong> your users can link directly to the piece of the page you want them to see.</p>
+          <p>To get a sense of what this means, check out this link: <a class="demo-link" href="http://betterlink.io/webmaster-overview?bl-sid=3" rel="nofollow">click here</a></p>
+          <p>If you load this page from the above link, you'll end up right here at this paragraph. Pretty cool? It's easy to setup.</p>
 
-          <hr>
-          <h3>Bullet Point Setup</h3>
-          <p>In most cases, there's two basic steps:</p>
-          <p><ol>
-            <li>Copy the Betterlink script</li>
-            <li>Paste into your webpages</li>
-          </ol></p>
+          <h3>Setup Steps</h3>
+          <ol>
+            <li>Setup payment account <small><a href="/payments.html">see plans and pricing</a></small></li>
+            <li>Integrate JavaScript library</li>
+          </ol>
 
-          <p><b>1.</b> Copy the below script.</p>
-          <h4 class="detailed-description">Script Text</h4>
-          <pre class="prettyprint detailed-description"><code>    &lt;script&gt;
-      (function(d,s,id){
-      var js,fjs = d.getElementsByTagName(s)[0];
-      if(!d.getElementById(id)){
-      js=d.createElement(s); js.id = id; js.defer = true;
-      js.src="//code.betterlink.io/betterlink.js";
-      js.setAttribute('data-script-source','within source');
-      fjs.parentNode.insertBefore(js,fjs);}
-      }(document,'script','betterlink-js'));
-    &lt;/script&gt;</code></pre>
-          <p class="detailed-description">In simpler terms, this creates the following script element for your page:</p>
-          <pre class="prettyprint detailed-description"><code>    &lt;script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"&gt;&lt;/script&gt;</code></pre>
-          <p class="detailed-description">The only difference is that we structure the script tag specially so that it doesn't block any other content on your page from loading.</p>
-
-          <p><b>2.</b> Paste into your webpages.</p>
-          <p class="detailed-description">Make sure you get it on <strong>all</strong> of the pages on your site.</p>
-          <div class="well well-sm message-block detailed-description"><p>Quick and simple answer: you should add Betterlink just before the closing <code>&lt;/body&gt;</code> tag on your webpages</p></div>
-
-          <h4>Initializing Betterlink</h4>
-
-          <p>The good news: If you're following this simple setup, you're all done!</p>
-          <p>When your browser loads the Betterlink script, it will automatically enable content sharing. We'll also automatically check if a visitor followed one of your new special links. If so, we'll take them to the requested portion of the page and highlight the content.</p>
-          <span class="content-tbd"><p>If you're concerned about any of the below topics, check out our <a href="#">Advanced Setup</a>:</p>
-          <ul>
-            <li>Redirecting mobile users <small><em>(so they can see the same highlighted content)</em></small></li>
-            <li>Linking to dynamic content on a page <small><em>(content that changes or displays sometime after the page initially loads)</em></small></li>
-            <li>Linking to content that displays when a hash is loaded in the URL <small><em>(like <code>http://example.com#my_content</code>)</em></small></li>
-            <li>Customizing the look and feel of the highlights</li>
-            <li>Using permalinks to link to pages that change their address</li>
-          </ul></span>
+          <a id="setup-next-step-button" href="/payments.html" class="btn btn-success btn-lg">First Step &#x203a;&#x203a; Setup Account</a>
 
         </div>
 
@@ -127,9 +92,9 @@
                 <ul>
                   <li class="active">For Webmasters
                     <ul>
-                      <li><a href="/webmaster-overview.html">Overview</a></li>
+                      <li class="active">Overview</li>
                       <li><a href="/payments.html">Payments Profile</a></li>
-                      <li class="active">Website Setup</li>
+                      <li><a href="/website-setup.html">Website Setup</a></li>
                     </ul>
                   </li>
                   <li><a href="/browser-extension-setup.html">For Everyone</a></li>
@@ -158,7 +123,6 @@
     <!-- javascript -->
     <script src="/js/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="/js/google-code-prettify/run_prettify.js"></script>
 
     <!-- Example use of betterlink.js script here -->
     <script>

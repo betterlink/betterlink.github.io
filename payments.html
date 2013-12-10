@@ -1,20 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Setup Betterlink JavaScript Library">
+    <meta name="description" content="Pricing and Plans.">
     <meta name="author" content="Betterlink">
 
-    <title>Betterlink - Website Script Setup</title>
+    <title>Betterlink - Payments &amp; Pricing</title>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/blog-post.css" rel="stylesheet">
     <link href="/css/betterlink-site.css" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="canonical" href="http://betterlink.io/website-setup"/>
+    <link rel="canonical" href="http://betterlink.io/payments"/>
   </head>
 
   <body id="information-page">
@@ -60,61 +59,38 @@
           <h1>Betterlink - Webmaster Setup</h1>
 
           <ul id="intro-bullets">
-            <li>Step 2 of 2: Integrate JavaScript Library</li>
+            <li>Step 1 of 2: Payments</li>
           </ul>
 
           <hr>
 
-          <p class="lead">Adding Betterlink to your website is easy. We'll do most of the heavy-lifting for you.</p>
-          <p>Betterlink comes in two flavors: the <a href="/docs/basic-setup.html">standard setup</a> for most clients, and a <a href="/docs/advanced-setup.html">customizable setup</a> for advanced users. Below, we'll sprint through the one-size-fits-most setup.</p>
-          <p>For more details on:</p>
+          <p class="lead">Betterlink uses a simple payments model: you pay when we drive you traffic.</p>
+          <p>Compared to normal links to your content, Betterlink creates a stronger experience for you and your visitors.</p>
           <ul>
-            <li>customization options</li>
-            <li>handling dyanmic content on pages</li>
-            <li>supporting links for desktop and mobile</li>
+            <li>Simple user experience</li>
+            <li>Easier to create and find links to your content on-the-fly</li>
+            <li>Increased page engagement for visitors</li>
+            <li>Discover insights on which content drives shares, visits, and engagement</li>
           </ul>
-          <p>...or anything else, please refer to our full <a href="/docs/basic-setup.html">documentation</a>.</p>
+          <p>We use a fixed cost-per-click (CPC) model on a monthly payment cycle. The charge: $0.44 per visit.</p>
+          <p>Discounted rates are available for non-profits or organizations with large volume.</p>
 
           <hr>
-          <h3>Bullet Point Setup</h3>
-          <p>In most cases, there's two basic steps:</p>
-          <p><ol>
-            <li>Copy the Betterlink script</li>
-            <li>Paste into your webpages</li>
-          </ol></p>
 
-          <p><b>1.</b> Copy the below script.</p>
-          <h4 class="detailed-description">Script Text</h4>
-          <pre class="prettyprint detailed-description"><code>    &lt;script&gt;
-      (function(d,s,id){
-      var js,fjs = d.getElementsByTagName(s)[0];
-      if(!d.getElementById(id)){
-      js=d.createElement(s); js.id = id; js.defer = true;
-      js.src="//code.betterlink.io/betterlink.js";
-      js.setAttribute('data-script-source','within source');
-      fjs.parentNode.insertBefore(js,fjs);}
-      }(document,'script','betterlink-js'));
-    &lt;/script&gt;</code></pre>
-          <p class="detailed-description">In simpler terms, this creates the following script element for your page:</p>
-          <pre class="prettyprint detailed-description"><code>    &lt;script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"&gt;&lt;/script&gt;</code></pre>
-          <p class="detailed-description">The only difference is that we structure the script tag specially so that it doesn't block any other content on your page from loading.</p>
+          <h3>Setting Up Your Payments Profile</h3>
 
-          <p><b>2.</b> Paste into your webpages.</p>
-          <p class="detailed-description">Make sure you get it on <strong>all</strong> of the pages on your site.</p>
-          <div class="well well-sm message-block detailed-description"><p>Quick and simple answer: you should add Betterlink just before the closing <code>&lt;/body&gt;</code> tag on your webpages</p></div>
+          <p>For now, initial account setup will be handled through email. Please contact us at <a href="mailto:account-setup@betterlink.io">account-setup@betterlink.io</a> to start the process.</p>
+          <p>Once your account is created, you'll receive an account ID and an API Key. You'll need the API Key to authenticate your website once you have integrated with the JavaScript library.</p>
 
-          <h4>Initializing Betterlink</h4>
+          <hr>
 
-          <p>The good news: If you're following this simple setup, you're all done!</p>
-          <p>When your browser loads the Betterlink script, it will automatically enable content sharing. We'll also automatically check if a visitor followed one of your new special links. If so, we'll take them to the requested portion of the page and highlight the content.</p>
-          <span class="content-tbd"><p>If you're concerned about any of the below topics, check out our <a href="#">Advanced Setup</a>:</p>
-          <ul>
-            <li>Redirecting mobile users <small><em>(so they can see the same highlighted content)</em></small></li>
-            <li>Linking to dynamic content on a page <small><em>(content that changes or displays sometime after the page initially loads)</em></small></li>
-            <li>Linking to content that displays when a hash is loaded in the URL <small><em>(like <code>http://example.com#my_content</code>)</em></small></li>
-            <li>Customizing the look and feel of the highlights</li>
-            <li>Using permalinks to link to pages that change their address</li>
-          </ul></span>
+          <h3>Testing Betterlink Before Account Creation</h3>
+
+          <p>The good news: you'll be able to test Betterlink on your website before you've fully setup an account. The first 100 visits to your domain or the first 15 days (whichever happens first) is your trial period. Immediately following your trial period, we will start tracking page visits using Betterlink.</p>
+          <p>All you need to do is setup Betterlink according to the <a href="/website-setup.html">setup steps</a>, and everything will work automatically.</p>
+          <p>At the end of your trial period, if users continue to visit your custom Betterlink links, they'll receive the same experience as if it were a regular, plain-old hyperlink (so your users won't be negatively impacted).</p>
+
+          <a id="setup-next-step-button" href="/website-setup.html" class="btn btn-success btn-lg">Next Step &#x203a;&#x203a; Setup JavaScript Library</a>
 
         </div>
 
@@ -128,8 +104,8 @@
                   <li class="active">For Webmasters
                     <ul>
                       <li><a href="/webmaster-overview.html">Overview</a></li>
-                      <li><a href="/payments.html">Payments Profile</a></li>
-                      <li class="active">Website Setup</li>
+                      <li class="active">Payments Profile</li>
+                      <li><a href="/website-setup.html">Website Setup</a></li>
                     </ul>
                   </li>
                   <li><a href="/browser-extension-setup.html">For Everyone</a></li>
@@ -158,7 +134,6 @@
     <!-- javascript -->
     <script src="/js/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="/js/google-code-prettify/run_prettify.js"></script>
 
     <!-- Example use of betterlink.js script here -->
     <script>
