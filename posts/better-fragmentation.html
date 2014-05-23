@@ -121,7 +121,10 @@
 
           <h3>Betterlink's Approach</h3>
 
-          <p><em>To view the below Betterlink demos, you'll need the Chrome Extension: </em><a id="direct-to-chrome-store" class="btn btn-primary" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi">Add to Chrome</a></p>
+          <div id="disclaimer" class="well well-sm message-block">
+            <p id="disclaimer-with-chrome"><small>To view the below Betterlink demos, you'll need the Chrome Extension: <a id="direct-to-chrome-store" class="btn btn-primary" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi">Add to Chrome</a></small></p>
+            <p id="disclaimer-without-chrome" style="display: none;"><small>To view the below Betterlink demos, you'll need a Betterlink browser extension. At the moment, only a Chrome Extension is available. If you reload this page in Chrome, you'll see an 'add to chrome' link.</small></p>
+          </div>
           <p>Enough about problems. The short answer is that Betterlink solves for all of the above.</p>
           <ul>
             <li><a class="demo-link" href="http://mhuegel.de/lab/hashslider/?bl-sid=98#hashslider">Hashslider</a></li>
@@ -191,8 +194,19 @@
     <script src="/js/google-code-prettify/run_prettify.js"></script>
 
     <script>
-      var chromeInstallButton = document.getElementById('direct-to-chrome-store');
-      addListener(chromeInstallButton, 'click', inlineInstallChrome);
+      var extensionActive = false;
+      checkIfExtensionInstalled();
+
+      if(!extensionActive) {
+        if(usingChrome()) {
+          var chromeInstallButton = document.getElementById('direct-to-chrome-store');
+          addListener(chromeInstallButton, 'click', inlineInstallChrome);
+        }
+        else {
+          document.getElementById('disclaimer-without-chrome').style.display = '';
+          document.getElementById('disclaimer-with-chrome').style.display = 'none';
+        }
+      }
 
       function isHostMethod (o, p) {
         var OBJECT = "object", FUNCTION = "function", UNDEFINED = "undefined";
@@ -218,9 +232,30 @@
         chrome.webstore.install();
       }
 
-      function chromeAppInstalled() {
-        return chrome.app.isInstalled;
+      function checkIfExtensionInstalled() {
+        var extensionId = "igdempgllbmcpcjpljjgkijpmiphcdoi";
+        var localExtensionId = "kiholmbglpcoimgoonebnambfgffmmdp";
+
+        if(window.chrome && window.chrome.runtime) {
+          window.chrome.runtime.sendMessage(extensionId, {ping: true},
+            function(response) {
+              if(response && response.pong && response.pong === 200) {
+                extensionActive = true;
+                hideExtensionDisclaimer();
+              }
+            }
+          );
+        }
       }
+
+      function usingChrome() {
+        return window.chrome;
+      }
+
+      function hideExtensionDisclaimer() {
+        document.getElementById('disclaimer').style.display = 'none';
+      }
+
     </script>
 
     <!-- Example use of betterlink.js script here -->
