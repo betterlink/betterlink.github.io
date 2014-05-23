@@ -86,7 +86,8 @@
           <div class="detailed-description">
             <p>The biggest issue is that the current proposal isn't a valid URL. In the <a href="http://tools.ietf.org/html/rfc3986#section-3.5">specification</a>, fragment identifiers (everything that comes after that first hash) can't contain another hash.</p>
             <p>The most likely effect: these URLs will break in automated tools or JavaScript libraries.</p>
-            <p>We can use the <a href="http://mhuegel.de/lab/hashslider">Hashslider</a> homepage as an example. Hashslider is a simple jQuery image slider that saves the current image's identifier in the URL for easy hotlinking. If I created a fragmentation to the text, "link to any content", my URL would look like:</p>
+            <p>We can use the <a href="http://mhuegel.de/lab/hashslider">Hashslider</a> homepage as an example. Hashslider is a simple jQuery image slider that saves the current image's identifier in the URL for easy hotlinking.</p>
+            <p>If I created a fragmentation to the text, "link to any content", my URL would look like:</p>
             <pre><code>http://mhuegel.de/lab/hashslider/#hashslider##link+to+any+content</code></pre>
             <p>If you visit <a href="http://mhuegel.de/lab/hashslider/#hashslider##link+to+any+content">that link</a>, you'll see the page breaks. And you can't undo the breakage by clicking around or refreshing the page.</p>
           </div>
@@ -95,15 +96,15 @@
           <div class="detailed-description">
             <p>This is another dealbreaker. To figure out the result of a fragmentation, Kevin writes:</p>
             <blockquote>Fragmentions find the first matching word or phrase in a document and focuses its closest surrounding element.</blockquote>
-            <p>Essentially, a browser that matches the requested text should highlight the entire parent element that contains that text. Simple example: if I request a sentence, the full paragraph is highlighted.</p>
+            <p>Essentially, a browser should highlight the entire parent element that contains the requested text. Simple example: if I request a sentence, the full paragraph is highlighted.</p>
             <div class="thumbnail with-caption">
               <img src="/images/fragment_test_1.png"></img>
-              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web">http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web</a></small></p>
+              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web">"Epeus' epigone", Kevin Marks's blog</a></small></p>
             </div>
             <p>Suppose I try something slightly more complicated. Like <em>two</em> sentences at the end of an article. If my selection is unfortunate enough, I may end up highlighting the entire article.</p>
             <div class="thumbnail with-caption">
               <img src="/images/fragment_test_2.png"></img>
-              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.">http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.</a></small></p>
+              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.">"Epeus' epigone", Kevin Marks's blog</a></small></p>
             </div>
             <p>That's not useful and is suddenly <strong>impairing</strong> my experience.</p>
           </div>
@@ -132,10 +133,16 @@
             <li><a class="demo-link" href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html?bl-sid=99">Don't Highlight the Full Article</a></li>
             <li><a class="demo-link" href="http://epeus.blogspot.com/2003/02/blog-power-laws-revisited.html?bl-sid=100">Cross Browser Line Breaks</a></li>
           </ul>
-          <p>Each of those links does exactly what the user expects - it brings us to the specific text that is highlighted. If those sites also enabled Betterlink, you'd be able to access them from any browser or mobile device.</p>
-          <p>In a followup post, we'll discuss how Betterlink approaches the same problems above, and our principles for creating a text-linked solution for our users.</p>
+          <p>Each of those links does exactly what the user expects - it brings us to the specific text that is highlighted. If those sites also included <code>betterlink.js</code>, you'd be able to see them from any browser or mobile device.</p>
+          <p>In a followup post, we'll discuss how Betterlink approaches the same problems above, and our principles for creating a text-anchored solution for our users.</p>
 
-          <div id="for later" class="content-tbd">
+          <div id="promotion-banner" class="well">
+            <p>Want to use Betterlink for yourself?</p>
+            <p id="promotion-banner-links"><a href="/browser-extension-setup.html" class="btn btn-primary">Install the Extension</a> or <a href="/webmaster-overview.html" class="btn btn-success">Include the Library</a></p>
+          </div>
+
+          <!-- ************************************************************** -->
+          <div id="for_later" class="content-tbd">
             <p>There are some basic principles for choosing a way to represent this feature:</p>
             <ul>
               <li>The constructed URL should be valid and compatible with older browsers or automated systems</li>

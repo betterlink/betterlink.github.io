@@ -364,3 +364,28 @@ pre.detailed-description {
 	.thumbnail.with-caption small>a, .thumbnail.with-caption small>a:hover {
 		color: #999;
 	}
+
+#promotion-banner {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 110%;
+	text-align: center;
+	margin-top: 30px;
+}
+	#promotion-banner-links {
+		line-height: 1.7;
+	}
+	#promotion-banner-links > a {
+		font-style: initial;
+		font-size: inherit;
+		display: block;
+		margin-left: 9%;
+		margin-right: 9%;
+	}
+	@media (min-width: 768px) {
+		#promotion-banner-links > a {
+			display: inline-block;
+			margin-left: inherit;
+			margin-right: inherit;
+		}
+	}
