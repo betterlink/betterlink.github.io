@@ -146,23 +146,6 @@ h3 {
 	font-size: 20px;
 }
 
-#intro-bullets-with-button {
-	list-style-type: none;
-	padding: 0;
-}
-
-	#intro-bullets-with-button > li {
-		display: inline-block;
-	}
-
-	#intro-bullets-with-button > li > ul {
-		list-style-type: disc;
-	}
-
-	#intro-bullets-with-button > .get-started-button {
-		padding: 10px 5px 0 12px;
-	}
-
 .info-bar {
 	margin: 5px 0px;
 }
