@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Better fragmentations with Betterlink.">
+    <meta name="description" content="Better fragmentions with Betterlink.">
     <meta name="author" content="Betterlink">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Betterlink - Better Fragmentations</title>
+    <title>Betterlink - Better Fragmentions</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/blog-post.css" rel="stylesheet">
@@ -23,7 +23,7 @@
     <![endif]-->
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="canonical" href="http://betterlink.io/posts/better-fragmentation"/>
+    <link rel="canonical" href="http://betterlink.io/posts/better-fragmention"/>
   </head>
 
   <body id="information-page">
@@ -70,13 +70,13 @@
 
           <hr>
 
-          <h2>Better 'fragmentations' with Betterlink <small class="posting-time"><span class="glyphicon glyphicon-time"></span> May 23, 2014</small></h2>
+          <h2>Better 'fragmentions' with Betterlink <small class="posting-time"><span class="glyphicon glyphicon-time"></span> May 23, 2014</small></h2>
           <p class="lead">The one thing Betterlink does <em>really</em> well is create custom links to the text you select.</p>
 
-          <p>It's no surprise linking to text is something that's been missing from the Web, and there are others who are trying to figure out what to do about it. <a href="https://twitter.com/kevinmarks">Kevin Marks</a> recently posted his idea on 'fragmentations'.</p>
-          <p><a href="https://medium.com/p/41ef2be9953f">Fragmentations</a> are Kevin's approach to annotating the Web by linking to specific content. An example URL might look like:</p>
+          <p>It's no surprise linking to text is something that's been missing from the Web, and there are others who are trying to figure out what to do about it. <a href="https://twitter.com/kevinmarks">Kevin Marks</a> recently posted his idea on 'fragmentions'.</p>
+          <p><a href="https://medium.com/p/41ef2be9953f">Fragmentions</a> are Kevin's approach to annotating the Web by linking to specific content. An example URL might look like:</p>
           <pre><code>http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web</code></pre>
-          <p>The double hash sign at the end is the signifier for a fragmentation, and what follows is a case-sensitive, plus-delimited string to anchor against.</p>
+          <p>The double hash sign at the end is the signifier for a fragmention, and what follows is a case-sensitive, plus-delimited string to anchor against.</p>
           <p>But we can do better.</p>
 
           <hr>
@@ -87,24 +87,24 @@
             <p>The biggest issue is that the current proposal isn't a valid URL. In the <a href="http://tools.ietf.org/html/rfc3986#section-3.5">specification</a>, fragment identifiers (everything that comes after that first hash) can't contain another hash.</p>
             <p>The most likely effect: these URLs will break in automated tools or JavaScript libraries.</p>
             <p>We can use the <a href="http://mhuegel.de/lab/hashslider">Hashslider</a> homepage as an example. Hashslider is a simple jQuery image slider that saves the current image's identifier in the URL for easy hotlinking.</p>
-            <p>If I created a fragmentation to the text, "link to any content", my URL would look like:</p>
+            <p>If I created a fragmention to the text, "link to any content", my URL would look like:</p>
             <pre><code>http://mhuegel.de/lab/hashslider/#hashslider##link+to+any+content</code></pre>
             <p>If you visit <a href="http://mhuegel.de/lab/hashslider/#hashslider##link+to+any+content">that link</a>, you'll see the page breaks. And you can't undo the breakage by clicking around or refreshing the page.</p>
           </div>
 
           <h4>2. Not Targeting the Selection</h4>
           <div class="detailed-description">
-            <p>This is another dealbreaker. To figure out the result of a fragmentation, Kevin writes:</p>
+            <p>This is another dealbreaker. To figure out the result of a fragmention, Kevin writes:</p>
             <blockquote>Fragmentions find the first matching word or phrase in a document and focuses its closest surrounding element.</blockquote>
             <p>Essentially, a browser should highlight the entire parent element that contains the requested text. Simple example: if I request a sentence, the full paragraph is highlighted.</p>
             <div class="thumbnail with-caption">
               <img src="/images/fragment_test_1.png"></img>
-              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web">"Epeus' epigone", Kevin Marks's blog</a></small></p>
+              <p><small>fragmention via <a href="http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web">"Epeus' epigone", Kevin Marks's blog</a></small></p>
             </div>
             <p>Suppose I try something slightly more complicated. Like <em>two</em> sentences at the end of an article. If my selection is unfortunate enough, I may end up highlighting the entire article.</p>
             <div class="thumbnail with-caption">
               <img src="/images/fragment_test_2.png"></img>
-              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.">"Epeus' epigone", Kevin Marks's blog</a></small></p>
+              <p><small>fragmention via <a href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.">"Epeus' epigone", Kevin Marks's blog</a></small></p>
             </div>
             <p>That's not useful and is suddenly <strong>impairing</strong> my experience.</p>
           </div>
@@ -146,12 +146,12 @@
             <p>There are some basic principles for choosing a way to represent this feature:</p>
             <ul>
               <li>The constructed URL should be valid and compatible with older browsers or automated systems</li>
-              <li>If a browser or webpage doesn't "understand" what to do with the fragmentation, the user experience should gracefully degrade. In other words, the URL should be like any other URL: linking to the top of a page.</li>
-              <li>Fragmentations should support pages that serve dynamic content. What happens when the requested fragmentation <em>is</em> on the page, but it's not displayed? <a href="http://css-tricks.com/examples/DynamicPage/#about.php">Some pages</a> only display content on page load when requested with a hash.</li>
+              <li>If a browser or webpage doesn't "understand" what to do with the fragmention, the user experience should gracefully degrade. In other words, the URL should be like any other URL: linking to the top of a page.</li>
+              <li>Fragmentions should support pages that serve dynamic content. What happens when the requested fragmention <em>is</em> on the page, but it's not displayed? <a href="http://css-tricks.com/examples/DynamicPage/#about.php">Some pages</a> only display content on page load when requested with a hash.</li>
             </ul>
             <p>In addition, we want to make sure the experience matches the user's expectations. Essentially:</p>
             <ul>
-              <li>If I create a fragmentation by selecting text, then that <strong>same</strong> text should appear when I (or anyone else) revist that link</li>
+              <li>If I create a fragmention by selecting text, then that <strong>same</strong> text should appear when I (or anyone else) revist that link</li>
               <li>Links I create on my machine should work for anybody who visits the link in another browser, computer, or mobile device</li>
             </ul>
             <p>Betterlink was designed specifically with these principles in mind.</p>
