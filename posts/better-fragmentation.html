@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Better fragmentations with Betterlink.">
+    <meta name="author" content="Betterlink">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Betterlink - Better Fragmentations</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/blog-post.css" rel="stylesheet">
+    <link href="/css/betterlink-site.css" rel="stylesheet">
+
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/igdempgllbmcpcjpljjgkijpmiphcdoi">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="http://betterlink.io/posts/better-fragmentation"/>
+  </head>
+
+  <body id="information-page">
+
+    <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Betterlink</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="betterlink-site-nav" class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/index.html">Get Betterlink</a></li>
+            <li><a href="/docs/basic-setup.html">Documentation</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li class="content-tbd"><a href="#about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right content-tbd">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Contribute</a></li>
+                <li><a href="#">API and Docs</a></li>
+                <li><a href="https://github.com/betterlink">On GitHub</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Betterlink Blog</h1>
+
+          <hr>
+
+          <h2>Better 'fragmentations' with Betterlink <small class="posting-time"><span class="glyphicon glyphicon-time"></span> May 23, 2014</small></h2>
+          <p class="lead">The one thing Betterlink does <em>really</em> well is create custom links to the text you select.</p>
+
+          <p>It's no surprise linking to text is something that's been missing from the Web, and there are others who are trying to figure out what to do about it. <a href="https://twitter.com/kevinmarks">Kevin Marks</a> recently posted his idea on 'fragmentations'.</p>
+          <p><a href="https://medium.com/p/41ef2be9953f">Fragmentations</a> are Kevin's approach to annotating the Web by linking to specific content. An example URL might look like:</p>
+          <pre><code>http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web</code></pre>
+          <p>The double hash sign at the end is the signifier for a fragmentation, and what follows is a case-sensitive, plus-delimited string to anchor against.</p>
+          <p>But we can do better.</p>
+
+          <hr>
+          <h3>Three Concerns</h3>
+
+          <h4>1. Not a Valid URL</h4>
+          <div class="detailed-description">
+            <p>The biggest issue is that the current proposal isn't a valid URL. In the <a href="http://tools.ietf.org/html/rfc3986#section-3.5">specification</a>, fragment identifiers (everything that comes after that first hash) can't contain another hash.</p>
+            <p>The most likely effect: these URLs will break in automated tools or JavaScript libraries.</p>
+            <p>We can use the <a href="http://mhuegel.de/lab/hashslider">Hashslider</a> homepage as an example. Hashslider is a simple jQuery image slider that saves the current image's identifier in the URL for easy hotlinking. If I created a fragmentation to the text, "link to any content", my URL would look like:</p>
+            <pre><code>http://mhuegel.de/lab/hashslider/#hashslider##link+to+any+content</code></pre>
+            <p>If you visit <a href="http://mhuegel.de/lab/hashslider/#hashslider##link+to+any+content">that link</a>, you'll see the page breaks. And you can't undo the breakage by clicking around or refreshing the page.</p>
+          </div>
+
+          <h4>2. Not Targeting the Selection</h4>
+          <div class="detailed-description">
+            <p>This is another dealbreaker. To figure out the result of a fragmentation, Kevin writes:</p>
+            <blockquote>Fragmentions find the first matching word or phrase in a document and focuses its closest surrounding element.</blockquote>
+            <p>Essentially, a browser that matches the requested text should highlight the entire parent element that contains that text. Simple example: if I request a sentence, the full paragraph is highlighted.</p>
+            <div class="thumbnail with-caption">
+              <img src="/images/fragment_test_1.png"></img>
+              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web">http://epeus.blogspot.com/2003_02_01_archive.html##annotate+the+web</a></small></p>
+            </div>
+            <p>Suppose I try something slightly more complicated. Like <em>two</em> sentences at the end of an article. If my selection is unfortunate enough, I may end up highlighting the entire article.</p>
+            <div class="thumbnail with-caption">
+              <img src="/images/fragment_test_2.png"></img>
+              <p><small>fragmentation via <a href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.">http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html##The+technologies+described+are+Patent+Pending.+Good.</a></small></p>
+            </div>
+            <p>That's not useful and is suddenly <strong>impairing</strong> my experience.</p>
+          </div>
+
+          <h4>3. Not All Browsers Play The Same</h4>
+          <div class="detailed-description">
+            <p>Specifically, not all browsers treat whitespace the same. It's one thing to capture a sentence in the middle of a paragraph. Another to capture a fragment that spans across paragraph or break tags.</p>
+            <p>We can use another example from Kevin's blog as a test:</p>
+            <pre><code>http://epeus.blogspot.com/2003/02/blog-power-laws-revisited.html##come+to+are:+Weblog</code></pre>
+            <p>If you try <a href="http://epeus.blogspot.com/2003/02/blog-power-laws-revisited.html##come+to+are:+Weblog">this example</a> in Chrome, it works fine. In Firefox or IE -- not so much.</p>
+            <p>The issue here is portability: if I create a link and share it on Facebook, you should get the expected highlights, even if you're running on a different browser or machine.</p>
+          </div>
+
+          <hr>
+
+          <h3>Betterlink's Approach</h3>
+
+          <p><em>To view the below Betterlink demos, you'll need the Chrome Extension: </em><a id="direct-to-chrome-store" class="btn btn-primary" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi">Add to Chrome</a></p>
+          <p>Enough about problems. The short answer is that Betterlink solves for all of the above.</p>
+          <ul>
+            <li><a class="demo-link" href="http://mhuegel.de/lab/hashslider/?bl-sid=98#hashslider">Hashslider</a></li>
+            <li><a class="demo-link" href="http://epeus.blogspot.com/2003/02/googles-origins-hint-about-blogger.html?bl-sid=97">Annotate The Web</a></li>
+            <li><a class="demo-link" href="http://epeus.blogspot.com/2003/02/woodstock-win-todays-award-for.html?bl-sid=99">Don't Highlight the Full Article</a></li>
+            <li><a class="demo-link" href="http://epeus.blogspot.com/2003/02/blog-power-laws-revisited.html?bl-sid=100">Cross Browser Line Breaks</a></li>
+          </ul>
+          <p>Each of those links does exactly what the user expects - it brings us to the specific text that is highlighted. If those sites also enabled Betterlink, you'd be able to access them from any browser or mobile device.</p>
+          <p>In a followup post, we'll discuss how Betterlink approaches the same problems above, and our principles for creating a text-linked solution for our users.</p>
+
+          <div id="for later" class="content-tbd">
+            <p>There are some basic principles for choosing a way to represent this feature:</p>
+            <ul>
+              <li>The constructed URL should be valid and compatible with older browsers or automated systems</li>
+              <li>If a browser or webpage doesn't "understand" what to do with the fragmentation, the user experience should gracefully degrade. In other words, the URL should be like any other URL: linking to the top of a page.</li>
+              <li>Fragmentations should support pages that serve dynamic content. What happens when the requested fragmentation <em>is</em> on the page, but it's not displayed? <a href="http://css-tricks.com/examples/DynamicPage/#about.php">Some pages</a> only display content on page load when requested with a hash.</li>
+            </ul>
+            <p>In addition, we want to make sure the experience matches the user's expectations. Essentially:</p>
+            <ul>
+              <li>If I create a fragmentation by selecting text, then that <strong>same</strong> text should appear when I (or anyone else) revist that link</li>
+              <li>Links I create on my machine should work for anybody who visits the link in another browser, computer, or mobile device</li>
+            </ul>
+            <p>Betterlink was designed specifically with these principles in mind.</p>
+            <p>Our approach is to piggy-back on a feature all browsers support today: query parameters. An example Betterlink URL looks like:</p>
+            <pre><code>http://css-tricks.com/examples/DynamicPage/?bl-sid=56#about.php</code></pre>
+            <p>In the middle of that URL, <code>?bl-sid=56</code>, is what we've added. For any site on the Web, that <code>bl-sid</code> will be completely ignored. The sites don't need to use it for anything, and it won't impact the display of the webpage. In short: if Betterlink isn't turned on, nothing happens.</p>
+            <p>But if it is enabled, then we get to jump directly to the content that's requested.</p>
+            <div class="well well-sm message-block"><p><small>It's worth noting that in our example, we use an identifier instead of the full text to find. That's because we're running as a stand-alone service, and storing these references gives us a greater opportunity to create a unique experience. It would be similarly possible to serialize the attributes we care about, encode them in base 64, then include them in the URL as well.</small></p></div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+          <div class="well documentation-index">
+            <p><strong>Betterlink</strong> is a way for websites to enable personalized links to whatever their visitors want to share or save for later.</p>
+            <p><em>Site managers</em>: <a href="/webmaster-overview.html">Install Betterlink</a> to enable sharing for everyone</p>
+            <p><em>Visitors</em>: Use the <a href="/browser-extension-setup.html">Chrome Extension</a> to unlock this feature everywhere</p>
+            <ul class="feature-assurance text-center">
+              <li class="check">
+                <span class="glyphicon glyphicon-ok"></span>free to use
+              </li>
+              <li class="check">
+                <span class="glyphicon glyphicon-ok"></span>works across all browsers
+              </li>
+            </ul>
+          </div><!-- /well -->
+        </div>
+      </div><!-- /row -->
+
+      <!-- 
+      <hr>
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; Ben Getson 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
+          </div>
+        </div>
+      </footer> -->
+
+
+    </div><!-- /.container -->
+
+    <!-- javascript -->
+    <script src="/js/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/google-code-prettify/run_prettify.js"></script>
+
+    <script>
+      var chromeInstallButton = document.getElementById('direct-to-chrome-store');
+      addListener(chromeInstallButton, 'click', inlineInstallChrome);
+
+      function isHostMethod (o, p) {
+        var OBJECT = "object", FUNCTION = "function", UNDEFINED = "undefined";
+        var t = typeof o[p];
+        return t == FUNCTION || (!!(t == OBJECT && o[p])) || t == "unknown";
+      }
+
+      function addListener(obj, eventType, listener, scope) {
+        var scopedHandler = scope ? function(e) { return listener.apply(scope, [e]); } : listener;
+        if(isHostMethod(document, "addEventListener")) {
+          obj.addEventListener(eventType, scopedHandler, false);
+          return scopedHandler;
+        } else if (isHostMethod(document, "attachEvent")) {
+          obj.attachEvent("on" + eventType, scopedHandler);
+          return scopedHandler; // so can be removed
+        } else {
+          console.log("cannot add events");
+        }
+      }
+
+      function inlineInstallChrome(e) {
+        e.preventDefault();
+        chrome.webstore.install();
+      }
+
+      function chromeAppInstalled() {
+        return chrome.app.isInstalled;
+      }
+    </script>
+
+    <!-- Example use of betterlink.js script here -->
+    <script>
+      (function(d,s,id){
+        var js,fjs = d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+        js=d.createElement(s); js.id = id; js.defer = true;
+        js.src="//code.betterlink.io/betterlink.js";
+        js.setAttribute('data-script-source','within source');
+        fjs.parentNode.insertBefore(js,fjs);}
+      }(document,'script','betterlink-js'));
+    </script>
+
+    <script>
+      // GA
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-45392465-1', 'betterlink.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
