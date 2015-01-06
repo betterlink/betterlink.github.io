@@ -41,15 +41,6 @@ h6 {
     background-size: cover;
 }
 
-.intro-header h1 {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.intro-header h3 {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
-}
-
 .intro-message {
     position: relative;
     padding-top: 10%;
@@ -59,7 +50,17 @@ h6 {
 .intro-message > h1 {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 5em;
+}
+
+.intro-message > h3 {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+}
+
+.intro-message a {
+    color: inherit;
 }
 
 .intro-divider {
