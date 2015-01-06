@@ -101,12 +101,14 @@
 
             <hr class="section-heading-spacer">
             <div class="clearfix"></div>
-            <h2 class="section-heading">The Basics</h2>
-            <p class="lead">With Betterlink, your visitors can share and save your content easier than ever before.</p>
+            <h2 class="section-heading">Create Your Own Link</h2>
+            <ol class="lead">
+              <li>Highlight this line (like if you wanted to copy the text)</li>
+              <li>Hover over the above line. Click and hold. Start dragging.</li>
+              <li>A sidebar will open to the right. Drop the text in the flashing 'dropzone'.</li>
+            </ol>
 
-            <p>Betterlink is a basic add-on for your website. Once enabled, all of your content is immediately linkable. The same way you might share a link to a page you found interesting, <strong>now</strong> your users can link directly to the piece of the page you want them to see.</p>
-            <p>To get a sense of what this means, check out this link: <a class="demo-link" href="http://betterlink.io/docs/basic-setup?bl-sid=3" rel="nofollow">click here</a></p>
-            <p>If you load this page from the above link, you'll end up right here at this paragraph. Pretty cool? It's easy to setup.</p>
+            <p class="section-ending">No logins. No passwords. Keep it simple.</p>
 
           </div>
         </div><!-- /.row -->
@@ -121,13 +123,12 @@
 
             <hr class="section-heading-spacer">
             <div class="clearfix"></div>
-            <h2 class="section-heading">Simple Setup</h2>
-            <p>In most cases, all you need to do is add the Betterlink library to your site. This is also the same step you'll need to take, no matter how complex your setup is.</p>
-            <p>To add the library to your site, you'll need to find two things first:</p>
-            <ol>
-              <li>The script text you'll need to copy and paste <small><em>(we've got you covered here)</em></small></li>
-              <li>Where you're going to add the script</li>
-            </ol>
+            <h2 class="section-heading">Use Betterlink Everywhere</h2>
+            <div class="add-to-chrome">
+              <a id="direct-to-chrome-store" class="btn btn-primary btn-lg" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi">Add Betterlink to Chrome</a><span class="glyphicon glyphicon-ok"></span><span style="font-style: italic;">free to add</span>
+            </div>
+            <p class="lead">After you add Betterlink, you'll be able to use and share these links everywhere!</p>
+            <p class="lead">*Do you manage a website? You can <a href="/docs/basic-setup.html">add Betterlink to your website</a>, and all of your visitors (on any browser + mobile) can benefit.</p>
 
           </div>
         </div><!-- /.row -->
@@ -142,10 +143,9 @@
 
             <hr class="section-heading-spacer">
             <div class="clearfix"></div>
-            <h2 class="section-heading">Script Text</h2>
-            <p>In simpler terms, this creates the following script element for your page:</p>
-            <pre class="prettyprint"><code>    &lt;script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"&gt;&lt;/script&gt;</code></pre>
-            <p>The only difference is that we structure the script tag specially so that it doesn't block any other content on your page from loading.</p>
+            <h2 class="section-heading">Make Betterlink Better</h2>
+            <p class="lead">Betterlink is under active development and is <a href="https://github.com/betterlink/betterlink-interface">open source</a> on GitHub.</p>
+            <p class="lead">Contribute to improve Betterlink, report webpages that have issues, or add to the discussion on what comes next.</p>
 
           </div>
         </div><!-- /.row -->
@@ -178,6 +178,10 @@
 
       ga('create', 'UA-45392465-1', 'betterlink.io');
       ga('send', 'pageview');
+
+      $('#direct-to-chrome-store').click(function() {
+        ga('send', 'event', 'button', 'click', 'direct-to-chrome-store');
+      });
     </script>
   </body>
 </html>

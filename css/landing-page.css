@@ -134,6 +134,16 @@ h6 {
     padding: 0 10%;
 }
 
+.add-to-chrome {
+    margin-bottom: 30px;
+}
+
+.add-to-chrome > .glyphicon {
+    color: #9ACD32;
+    margin-right: 2px;
+    margin-left: 10px;
+}
+
 .banner {
     padding: 100px 0;
     color: #f8f8f8;
