@@ -129,6 +129,10 @@ h6 {
     border-top: 3px solid #e7e7e7;
 }
 
+.demo-text {
+    padding: 0 10%;
+}
+
 .banner {
     padding: 100px 0;
     color: #f8f8f8;
