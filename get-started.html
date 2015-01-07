@@ -182,7 +182,7 @@
       // Betterlink script added explicitly above to ensure it's
       // loaded before this script is called.
       var counter = 0;
-      if(window.location.search.indexOf('bl-sid=') === -1) {
+      if(!suppressJump() && !hasBetterlinkId()) {
         setTimeout(checkToHighlightAnchor, 50);
       }
 
@@ -196,6 +196,14 @@
           counter++;
           setTimeout(checkToHighlightAnchor, 50);
         }
+      }
+
+      function suppressJump() {
+        return window.location.search.indexOf('suppress=') !== -1;
+      }
+
+      function hasBetterlinkId() {
+        return window.location.search.indexOf('bl-sid=') !== -1;
       }
     </script>
 
