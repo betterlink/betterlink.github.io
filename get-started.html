@@ -243,7 +243,7 @@
 
       function inlineInstallChrome(e) {
         e.preventDefault();
-        chrome.webstore.install();
+        chrome.webstore.install('', switchChromeButtonDisplay);
       }
 
       function checkIfExtensionInstalled() {
