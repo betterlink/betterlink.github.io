@@ -17,6 +17,8 @@
     <link href="/css/landing-page.css" rel="stylesheet">
     <link href="/css/betterlink-site.css" rel="stylesheet">
 
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/igdempgllbmcpcjpljjgkijpmiphcdoi">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="/js/html5shiv.js"></script>
@@ -139,7 +141,10 @@
             <div class="clearfix"></div>
             <h2 class="section-heading">Use Betterlink Everywhere</h2>
             <div class="add-to-chrome">
-              <a id="direct-to-chrome-store" class="btn btn-primary btn-lg" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi">Add Betterlink to Chrome</a><span class="glyphicon glyphicon-ok"></span><span style="font-style: italic;">free to add</span>
+              <div id="add-betterlink-btn">
+                <a id="direct-to-chrome-store" class="btn btn-primary btn-lg" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi">Add Betterlink to Chrome</a><span class="glyphicon glyphicon-ok"></span><span style="font-style: italic;">free to add</span>
+              </div>
+              <a id="betterlink-enabled-btn" class="btn btn-success btn-lg" href="#" disabled style="display:none;"><span class="glyphicon glyphicon-ok"></span>Beterlink Enabled</a>
             </div>
             <p class="lead">After you add Betterlink, you'll be able to use and share these links everywhere!</p>
             <p class="lead">*Do you manage a website? You can <a href="/docs/basic-setup.html">add Betterlink to your website</a>, and all of your visitors (on any browser + mobile) can benefit.</p>
@@ -206,6 +211,59 @@
 
       function hasBetterlinkId() {
         return window.location.search.indexOf('bl-sid=') !== -1;
+      }
+
+      // ***************************************************
+      var extensionActive = false;
+      checkIfExtensionInstalled();
+
+      if(!extensionActive) {
+        var chromeInstallButton = document.getElementById('direct-to-chrome-store');
+        addListener(chromeInstallButton, 'click', inlineInstallChrome);
+      }
+
+      function isHostMethod (o, p) {
+        var OBJECT = "object", FUNCTION = "function", UNDEFINED = "undefined";
+        var t = typeof o[p];
+        return t == FUNCTION || (!!(t == OBJECT && o[p])) || t == "unknown";
+      }
+
+      function addListener(obj, eventType, listener, scope) {
+        var scopedHandler = scope ? function(e) { return listener.apply(scope, [e]); } : listener;
+        if(isHostMethod(document, "addEventListener")) {
+          obj.addEventListener(eventType, scopedHandler, false);
+          return scopedHandler;
+        } else if (isHostMethod(document, "attachEvent")) {
+          obj.attachEvent("on" + eventType, scopedHandler);
+          return scopedHandler; // so can be removed
+        } else {
+          console.log("cannot add events");
+        }
+      }
+
+      function inlineInstallChrome(e) {
+        e.preventDefault();
+        chrome.webstore.install();
+      }
+
+      function checkIfExtensionInstalled() {
+        var extensionId = "igdempgllbmcpcjpljjgkijpmiphcdoi";
+
+        if(window.chrome && window.chrome.runtime) {
+          window.chrome.runtime.sendMessage(extensionId, {ping: true},
+            function(response) {
+              if(response && response.pong && response.pong === 200) {
+                extensionActive = true;
+                switchChromeButtonDisplay();
+              }
+            }
+          );
+        }
+      }
+
+      function switchChromeButtonDisplay() {
+        document.getElementById('add-betterlink-btn').style.display = 'none';
+        document.getElementById('betterlink-enabled-btn').style.display = '';
       }
     </script>
 
