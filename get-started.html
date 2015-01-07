@@ -152,7 +152,7 @@
           </div>
 
           <div class="col-lg-5 col-sm-pull-6 col-sm-6" style="margin-top: 8%;">
-            <a href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi"><img class="img-responsive" src="/images/ChromeWebStore_Badge_v2_496x150.png" alt="available in the chrome web store"></a>
+            <a id="chrome-store-img" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi"><img class="img-responsive" src="/images/ChromeWebStore_Badge_v2_496x150.png" alt="available in the chrome web store"></a>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->
@@ -219,7 +219,9 @@
 
       if(!extensionActive) {
         var chromeInstallButton = document.getElementById('direct-to-chrome-store');
+        var chromeStoreImage = document.getElementById('chrome-store-img');
         addListener(chromeInstallButton, 'click', inlineInstallChrome);
+        addListener(chromeStoreImage, 'click', inlineInstallChrome);
       }
 
       function isHostMethod (o, p) {
