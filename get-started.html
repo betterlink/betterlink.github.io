@@ -71,7 +71,7 @@
             <div class="intro-message">
               <h1>Betterlink - Intro</h1>
               <hr class="intro-divider">
-              <h3>If you're reading this first, <a href="http://betterlink.io/get-started.html?bl-sid=149">click here</a></h3>
+              <h3>You shouldn't always need to start from the beginning</h3>
             </div>
           </div>
         </div>
@@ -167,18 +167,28 @@
     <!-- javascript -->
     <script src="/js/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.betterlink.io/betterlink.js"></script>
     <script src="/js/google-code-prettify/run_prettify.js"></script>
 
-    <!-- Example use of betterlink.js script here -->
     <script>
-      (function(d,s,id){
-        var js,fjs = d.getElementsByTagName(s)[0];
-        if(!d.getElementById(id)){
-        js=d.createElement(s); js.id = id; js.defer = true;
-        js.src="//code.betterlink.io/betterlink.js";
-        js.setAttribute('data-script-source','within source');
-        fjs.parentNode.insertBefore(js,fjs);}
-      }(document,'script','betterlink-js'));
+      // Betterlink script added explicitly above to ensure it's
+      // loaded before this script is called.
+      var counter = 0;
+      if(window.location.search.indexOf('bl-sid=') === -1) {
+        setTimeout(checkToHighlightAnchor, 50);
+      }
+
+      // If no Betterlink ID is provided when accessing this page, then
+      // automatically highlight the anchor text provided as a default
+      function checkToHighlightAnchor() {
+        if(betterlink.initialized) {
+          betterlink.highlightRequestedSelections(149);
+        }
+        else if(counter <= 120) {
+          counter++;
+          setTimeout(checkToHighlightAnchor, 50);
+        }
+      }
     </script>
 
     <script>
