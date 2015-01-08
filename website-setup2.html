@@ -8,7 +8,7 @@
 
     <title>Betterlink - Website Script Setup</title>
 
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/the-big-picture.css" rel="stylesheet">
     <link href="/css/betterlink-site.css" rel="stylesheet">
 
@@ -224,8 +224,8 @@
         var betterlinkSource = "//code.betterlink.io/betterlink-bespoke.js";
 
         $LAB
-          .script("/js/jquery.js").wait()
-          .script("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js").wait()
+          .script("//code.jquery.com/jquery-1.11.2.min.js").wait()
+          .script("//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js").wait()
           .script("/js/betterlink-site.js")
           .script(betterlinkSource)
           .wait(function() {
