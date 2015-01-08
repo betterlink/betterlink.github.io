@@ -196,7 +196,7 @@
       // If no Betterlink ID is provided when accessing this page, then
       // automatically highlight the anchor text provided as a default
       function checkToHighlightAnchor() {
-        if(betterlink.initialized) {
+        if(betterlink && betterlink.initialized) {
           betterlink.highlightRequestedSelections(151);
         }
         else if(counter <= 120) {
