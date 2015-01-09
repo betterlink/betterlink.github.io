@@ -355,8 +355,8 @@ pre.detailed-description {
 
 #promotion-banner {
 	font-weight: bold;
-	font-style: italic;
-	font-size: 110%;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
 	text-align: center;
 	margin-top: 30px;
 }

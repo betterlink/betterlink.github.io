@@ -179,6 +179,17 @@
       </div><!-- /.container -->
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div id="promotion-banner" class="well">
+            <p>Need more? <a href="/docs/technical-details.html">Check our documentation &raquo;</a></p>
+            <p id="promotion-banner-links"><a id="promotion-banner-install" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi" class="btn btn-primary">Install the Extension</a> or <a href="/webmaster-overview.html" class="btn btn-success">Include the Library</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- javascript -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -218,10 +229,7 @@
       checkIfExtensionInstalled();
 
       if(!extensionActive) {
-        var chromeInstallButton = document.getElementById('direct-to-chrome-store');
-        var chromeStoreImage = document.getElementById('chrome-store-img');
-        addListener(chromeInstallButton, 'click', inlineInstallChrome);
-        addListener(chromeStoreImage, 'click', inlineInstallChrome);
+        setupInlineInstallLinks();
       }
 
       function isHostMethod (o, p) {
@@ -240,6 +248,19 @@
           return scopedHandler; // so can be removed
         } else {
           console.log("cannot add events");
+        }
+      }
+
+      function setupInlineInstallLinks() {
+        var chromeInstallButton = document.getElementById('direct-to-chrome-store');
+        var chromeStoreImage = document.getElementById('chrome-store-img');
+        var promotionBannerLink = document.getElementById('promotion-banner-install');
+
+        var installLinks = [chromeInstallButton, chromeStoreImage, promotionBannerLink];
+
+        for(var i = 0, len = installLinks.length; i < len; i++) {
+          addListener(installLinks[i], 'click', inlineInstallChrome);
+          installLinks[i].href = '#';
         }
       }
 
