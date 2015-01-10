@@ -184,7 +184,16 @@
         <div class="col-lg-6 col-lg-offset-3">
           <div id="promotion-banner" class="well">
             <p>Need more? <a href="/docs/technical-details.html">Check our documentation &raquo;</a></p>
-            <p id="promotion-banner-links"><a id="promotion-banner-install" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi" class="btn btn-primary">Install the Extension</a> or <a href="/webmaster-overview.html" class="btn btn-success">Include the Library</a></p>
+            <p id="promotion-banner-links">
+              <div class="promotion-banner-install-div">
+                <a id="promotion-banner-install" href="https://chrome.google.com/webstore/detail/betterlink/igdempgllbmcpcjpljjgkijpmiphcdoi" class="promotion-banner-link btn btn-primary btn-wrap">Install the Extension</a>
+                <div id="promotion-banner-install-enabled" style="display: none;">
+                  <span class="feature-info"><span class="glyphicon glyphicon-ok"></span>enabled</span>
+                </div>
+              </div>
+               or 
+              <a href="/webmaster-overview.html" class="promotion-banner-link btn btn-success btn-wrap">Include the Library</a>
+            </p>
           </div>
         </div>
       </div>
@@ -287,6 +296,8 @@
       function switchChromeButtonDisplay() {
         document.getElementById('add-betterlink-btn').style.display = 'none';
         document.getElementById('betterlink-enabled-btn').style.display = '';
+
+        document.getElementById('promotion-banner-install-enabled').style.display = '';
       }
     </script>
 

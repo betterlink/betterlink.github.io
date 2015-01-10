@@ -363,7 +363,11 @@ pre.detailed-description {
 	#promotion-banner-links {
 		line-height: 1.7;
 	}
-	#promotion-banner-links > a {
+	.promotion-banner-install-div {
+		display: block;
+		vertical-align: top;
+	}
+	.promotion-banner-link {
 		font-style: initial;
 		font-size: inherit;
 		display: block;
@@ -371,9 +375,23 @@ pre.detailed-description {
 		margin-right: 9%;
 	}
 	@media (min-width: 768px) {
-		#promotion-banner-links > a {
+		.promotion-banner-install-div {
+			display: inline-block;
+		}
+		.promotion-banner-link {
 			display: inline-block;
 			margin-left: inherit;
 			margin-right: inherit;
 		}
+	}
+
+.feature-info {
+	display: inline-block;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 400;
+}
+	.feature-info > .glyphicon-ok {
+		color: #9ACD32;
+		margin-right: 2px;
 	}
