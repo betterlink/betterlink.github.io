@@ -313,7 +313,13 @@
       ga('send', 'pageview');
 
       $('#direct-to-chrome-store').click(function() {
-        ga('send', 'event', 'button', 'click', 'direct-to-chrome-store');
+        ga('send', 'event', 'initInstall', 'GetStarted', 'direct-to-chrome-store');
+      });
+      $('#chrome-store-img').click(function() {
+        ga('send', 'event', 'initInstall', 'GetStarted', 'chrome-store-img');
+      });
+      $('#promotion-banner-install').click(function() {
+        ga('send', 'event', 'initInstall', 'GetStarted', 'promotion-banner-install');
       });
     </script>
   </body>
