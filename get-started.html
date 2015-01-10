@@ -238,7 +238,7 @@
       var extensionActive = false;
       checkIfExtensionInstalled();
 
-      if(!extensionActive) {
+      if(window.chrome && !extensionActive) {
         setupInlineInstallLinks();
       }
 
