@@ -145,10 +145,8 @@ h6 {
     margin-bottom: 30px;
 }
 
-#add-betterlink-btn > .glyphicon {
-    color: #9ACD32;
-    margin-right: 2px;
-    margin-left: 10px;
+#add-betterlink-btn > .btn {
+    margin-right: 10px;
 }
 
 #betterlink-enabled-btn > .glyphicon {
