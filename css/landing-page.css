@@ -37,7 +37,7 @@ h6 {
 .intro-header {
     text-align: center;
     color: #f5f5f5;
-    background: url(../images/leaf-background.jpg) no-repeat center center;
+    background: #b1b1b1 url(../images/leaf-background.jpg) no-repeat center center;
     background-size: cover;
 }
 
