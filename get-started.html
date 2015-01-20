@@ -214,15 +214,28 @@
     <!-- javascript -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script defer id="betterlink-js" src="//code.betterlink.io/betterlink.js" data-script-source="within source"></script>
+    <script defer id="betterlink-js" src="//code.betterlink.io/betterlink-bespoke.js" data-script-source="within source"></script>
     <script src="/js/google-code-prettify/run_prettify.js"></script>
 
     <script>
-      // Betterlink script added explicitly above to ensure it's
-      // loaded before this script is called.
-      var counter = 0;
-      if(!suppressJump() && !hasBetterlinkId()) {
-        setTimeout(checkToHighlightAnchor, 50);
+      // Betterlink script added explicitly above to attempt to ensure
+      // it's loaded before this script is called. (unsuccessfully)
+      var initCounter = 0;
+      var highlightCounter = 0;
+      setTimeout(checkToInitializeBetterlink, 50);
+
+      // Initialize Betterlink using the FTE init option
+      function checkToInitializeBetterlink() {
+        if(betterlink) {
+          betterlink.init({ enableFTE: true });
+          if(!suppressJump() && !hasBetterlinkId()) {
+            checkToHighlightAnchor();
+          }
+        }
+        else if(initCounter <= 120) {
+          initCounter++;
+          setTimeout(checkToInitializeBetterlink, 50);
+        }
       }
 
       // If no Betterlink ID is provided when accessing this page, then
@@ -231,8 +244,8 @@
         if(betterlink && betterlink.initialized) {
           betterlink.highlightRequestedSelections(151);
         }
-        else if(counter <= 120) {
-          counter++;
+        else if(highlightCounter <= 120) {
+          highlightCounter++;
           setTimeout(checkToHighlightAnchor, 50);
         }
       }
